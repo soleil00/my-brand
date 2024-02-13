@@ -1,0 +1,123 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background: #292b2c;
+  color: white !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.acts a {
+  margin-left: 20px;
+}
+
+nav ul li {
+  list-style: none;
+  display: inline-block;
+  margin: 0 10px;
+}
+nav a {
+  color: white;
+}
+nav a :hover {
+  text-decoration: underline;
+  color: white;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.nav-right a {
+  margin-left: 10px;
+}
+
+.burger {
+  display: none;
+}
+
+.burger span {
+  display: block;
+  width: 30px;
+  height: 4px;
+  background: #ffffff;
+  margin: 5px 0;
+  border-radius: 5px;
+}
+
+.sidebar {
+  display: none;
+  background-color: red;
+  position: absolute;
+  top: 52px;
+  right: 0;
+  width: 60%;
+  padding: 10px;
+  background: #292b2c;
+  border-bottom-left-radius: 10px;
+}
+.test {
+  margin-top: auto;
+}
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0%);
+  }
+}
+@keyframes slideOut {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.show {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 200px;
+  animation: slideIn 0.2s ease-in-out;
+}
+.hide {
+  animation: slideOut 0.2s ease-in-out; /* Animation for sliding out */
+  display: none;
+}
+
+@media only screen and (max-width: 780px) {
+  ul {
+    display: none;
+  }
+  .burger {
+    display: block;
+  }
+  nav {
+    padding: 15px 25px;
+  }
+}
+
+@media only screen and (max-width: 460px) {
+  .nav-right {
+    display: none;
+  }
+  nav {
+    padding: 10px 15px;
+  }
+}
