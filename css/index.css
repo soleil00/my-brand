@@ -1,0 +1,26 @@
+body {
+  background: #2c3435;
+  position: relative;
+}
+
+.common {
+  max-width: 1212px;
+  width: 100%;
+  margin: auto;
+  padding: 40px 30px;
+}
+
+h4 {
+  font-size: 40px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+h3 {
+  font-size: 25px;
+  color: gray;
+}
+
+h2 {
+  font-size: 40px;
+}

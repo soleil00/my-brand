@@ -1,0 +1,45 @@
+.hero-section {
+  display: flex;
+  justify-content: center;
+  min-height: 60vh;
+  align-items: center;
+  color: white;
+}
+
+.hero-left {
+  width: 50%;
+}
+.hero-left h4 {
+  margin-bottom: 10px;
+  color: rgb(113, 110, 110);
+}
+
+.hero-left h2 {
+  margin-bottom: 10px;
+}
+.hero-left p {
+  color: rgb(113, 110, 110);
+}
+
+.hero-right {
+  width: 50%;
+}
+
+.hero-right img {
+  width: 100%;
+}
+
+@media only screen and (max-width: 780px) {
+}
+
+@media only screen and (max-width: 460px) {
+  .hero-section {
+    flex-direction: column;
+  }
+  .hero-left {
+    width: 100%;
+  }
+  .hero-right {
+    display: none;
+  }
+}

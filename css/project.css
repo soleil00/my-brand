@@ -1,0 +1,19 @@
+.project img {
+  width: 100%;
+}
+
+.project {
+  background: white;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.project-description {
+  padding: 10px;
+}
+
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 20px;
+}
