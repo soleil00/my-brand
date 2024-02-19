@@ -33,7 +33,7 @@ main {
   justify-content: space-between;
   min-height: 100vh;
   gap: 20px;
-  margin-top: 30px !important;
+  margin-top: 60px !important;
 }
 
 .main-left {
@@ -42,6 +42,8 @@ main {
 .main-left h3 {
   font-size: 30px;
   margin-bottom: 15px;
+  font-family: "roboto";
+  color: #ffffff;
 }
 
 .main-left img {
@@ -50,9 +52,18 @@ main {
 .main-left p {
   padding: 10px;
   color: white;
+  font-family: "roboto";
+  font-size: 20px;
+  font-style: normal;
 }
 .main-right {
   width: 40%;
+}
+
+.main-right h3 {
+  font-family: "regular";
+  font-size: 40px;
+  color: #ffffff;
 }
 
 .related-blog img {
@@ -67,8 +78,15 @@ main {
   padding-top: 10px;
 }
 .related-blog div p {
-  color: gray;
+  color: white;
   font-size: 12px;
+  font-family: "roboto", "Helvetica Neue", Helvetica, Arial;
+}
+
+.related-blog div h5 {
+  font-family: "roboto";
+  font-size: 18px;
+  color: white;
 }
 
 .comment {
@@ -80,6 +98,13 @@ main {
   width: 50px;
   height: 50px;
   border-radius: 30px;
+}
+
+.comment div .p {
+  font-size: 20px;
+}
+.comment div .p2 {
+  font-size: 16px;
 }
 
 .add-comment input {
@@ -108,6 +133,10 @@ main {
   padding: 10px 15px;
   border: none;
   border-radius: 10px;
+}
+
+.testing {
+  margin-top: 100px;
 }
 
 @media only screen and (max-width: 460px) {

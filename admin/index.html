@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./admin-css/index.css" />
+    <link rel="stylesheet" href="./admin-css/main.css" />
+    <link rel="stylesheet" href="./admin-css/topbar.css" />
+    <link rel="stylesheet" href="./admin-css/sidebar.css" />
+    <link rel="stylesheet" href="./admin-css/dashboard.css" />
+    <link rel="stylesheet" href="./admin-css/messages.css" />
+    <link rel="stylesheet" href="./admin-css/blogs.css" />
+    <link rel="stylesheet" href="./admin-css/newsletter.css" />
+    <title>Admin dashboard</title>
+  </head>
+  <body>
+    <div class="flex-cols common">
+      <div class="side-bar" id="side-bar">
+        <h4 id="close-me">SoleilApp Pannel</h4>
+        <div class="links">
+          <p class="active">Dashboard</p>
+          <p class="">Messages</p>
+          <p class="">Blogs</p>
+          <p class="">Newsletter</p>
+        </div>
+      </div>
+      <div class="top-bar">
+        <div class="burger" id="burger">
+          <span class="line"></span>
+          <span class="line"></span>
+          <span class="line"></span>
+        </div>
+
+        <img src="../images/me.png" alt="some imegae" />
+      </div>
+      <div class="main-contents">
+        <!-- dashboard html -->
+        <div class="dashboard" id="dashboard">
+          <div class="card-container">
+            <div class="card">
+              <img src="./images/icons/users.png" alt="" />
+              <div class="count" id="user-count">40 Users</div>
+            </div>
+            <div class="card">
+              <img src="./images/icons/message.png" alt="" />
+              <div class="count" id="message-count">23 Messages</div>
+            </div>
+            <div class="card">
+              <img src="./images/icons/blog.png" alt="" />
+              <div class="count" id="blog-count">6 Blogs</div>
+            </div>
+            <div class="card">
+              <img src="./images/icons/subscribers.png" alt="" />
+              <div class="count" id="subscriber-count">100 Subscribers</div>
+            </div>
+            <div class="card">
+              <img src="./images/icons/request.png" alt="" />
+              <div class="count" id="request-count">3 Requests</div>
+            </div>
+          </div>
+          <div class="recent-stats">
+            <!-- <h2>User Management</h2> -->
+            <table class="user-list">
+              <thead>
+                <tr>
+                  <th class="sm-hidden">Profile Picture</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Role</th>
+                  <th class="sm-hidden">Register At</th>
+                  <!-- New column -->
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="sm-hidden">
+                    <img src="user1.jpg" alt="User Image" />
+                  </td>
+                  <td>John Doe</td>
+                  <td>john@example.com</td>
+                  <td>Admin</td>
+                  <td class="sm-hidden">2022-01-01</td>
+                  <!-- Example date -->
+                </tr>
+                <tr>
+                  <td class="sm-hidden">
+                    <img src="user2.jpg" alt="User Image" />
+                  </td>
+                  <td>Jane Smith</td>
+                  <td>jane@example.com</td>
+                  <td>User</td>
+                  <td class="sm-hidden">2022-02-15</td>
+                  <!-- Example date -->
+                </tr>
+                <!-- More users can be added here -->
+              </tbody>
+            </table>
+            <div class="recent-subscribers">
+              <h4>Recent Subscribers</h4>
+              <div class="subscriber">
+                <img src="../images/me.png" alt="" />
+                <div class="data">
+                  <p>John Doe</p>
+                  <p>johndoe2gmail.com</p>
+                </div>
+              </div>
+              <div class="subscriber">
+                <img src="../images/me.png" alt="" />
+                <div class="data">
+                  <p>John Doe</p>
+                  <p>johndoe2gmail.com</p>
+                </div>
+              </div>
+              <div class="subscriber">
+                <img src="../images/me.png" alt="" />
+                <div class="data">
+                  <p>John Doe</p>
+                  <p>johndoe2gmail.com</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <canvas id="userChart" width="400" height="200"></canvas>
+        </div>
+
+        <!-- dashboard -->
+
+        <!-- messages htm starts here -->
+        <div class="messages" id="messages">
+          <div class="message" id="message">
+            <div class="message-left">
+              <p><strong>From : </strong> johndoe@gmail.com</p>
+              <p>this is message from john does baba</p>
+            </div>
+            <div class="message-right">
+              <button id="reply" class="repl">Reply</button>
+              <button id="delete" class="delete">Delete</button>
+            </div>
+          </div>
+          <div class="message" id="message">
+            <div class="message-left">
+              <p><strong>From : </strong> johndoe@gmail.com</p>
+              <p>this is message from john does baba</p>
+            </div>
+            <div class="message-right">
+              <button id="reply" class="repl">Reply</button>
+              <button id="delete" class="delete">Delete</button>
+            </div>
+          </div>
+          <div class="message" id="message">
+            <div class="message-left">
+              <p><strong>From : </strong> johndoe@gmail.com</p>
+              <p>this is message from john does baba</p>
+            </div>
+            <div class="message-right">
+              <button id="reply" class="repl">Reply</button>
+              <button id="delete" class="delete">Delete</button>
+            </div>
+          </div>
+          <div class="overlay" id="overlay">
+            <div class="delete-model" id="delete-model">
+              <!-- delete model -->
+              <div class="delete-model-content" id="delete-model-content">
+                <h3>Are you sure you want to delete this message?</h3>
+                <div class="buttons">
+                  <button id="yes" class="yes">Yes</button>
+                  <button id="no" class="no">No</button>
+                </div>
+              </div>
+              <!-- replay from -->
+            </div>
+            <div class="form-setting" id="form-setting">
+              <form class="reply-form" id="reply-form">
+                <input
+                  type="text"
+                  name=""
+                  id="reply-subject"
+                  placeholder="Enter Subject"
+                />
+                <textarea name="" id="" cols="30" rows="10"></textarea>
+                <input type="submit" name="" value="Reply" />
+                <button class="cancel-reply" id="no">Cancel</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- messages html end here -->
+
+        <div class="blogs" id="blogs">
+          <div class="add-blog">
+            <button id="add-blog-btn">Add new Blog</button>
+          </div>
+
+          <h3>All Blogs</h3>
+          <div class="blog-container">
+            <div class="blog">
+              <img src="../images/roadmap.jpg" alt="blog ijmage" />
+              <div class="blog-description">
+                <p class="blog-category">Docker</p>
+                <p>Nextjs 14 server actionsd</p>
+                <div class="blog-actions">
+                  <button id="delete-blog">Delete</button>
+                  <button id="edit-blog">Edit</button>
+                </div>
+              </div>
+            </div>
+            <div class="blog">
+              <img src="../images/roadmap.jpg" alt="blog ijmage" />
+              <div class="blog-description">
+                <p class="blog-category">Mern Stack</p>
+                <p>Nextjs 14 server actionsd</p>
+                <div class="blog-actions">
+                  <button id="delete-blog">Delete</button>
+                  <button id="edit-blog">Edit</button>
+                </div>
+              </div>
+            </div>
+            <div class="blog">
+              <img src="../images/roadmap.jpg" alt="blog ijmage" />
+              <div class="blog-description">
+                <p class="blog-category">Java</p>
+                <p>Nextjs 14 server actionsd</p>
+                <div class="blog-actions">
+                  <button id="delete-blog">Delete</button>
+                  <button id="edit-blog">Edit</button>
+                </div>
+              </div>
+            </div>
+            <div class="blog">
+              <img src="../images/roadmap.jpg" alt="blog ijmage" />
+              <div class="blog-description">
+                <p class="blog-category">Mern Stack</p>
+                <p>Nextjs 14 server actionsd</p>
+                <div class="blog-actions">
+                  <button id="delete-blog">Delete</button>
+                  <button id="edit-blog">Edit</button>
+                </div>
+              </div>
+            </div>
+            <div class="blog">
+              <img src="../images/roadmap.jpg" alt="blog ijmage" />
+              <div class="blog-description">
+                <p class="blog-category">web3.0</p>
+                <p>Nextjs 14 server actionsd</p>
+                <div class="blog-actions">
+                  <button id="delete-blog">Delete</button>
+                  <button id="edit-blog">Edit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="blog-overlay" id="blog-overlay">
+            <div class="add-blog-container" id="add-blog-container">
+              <form action="" class="add-blog-form" id="add-blog-form">
+                <input
+                  type="text"
+                  name=""
+                  id="blog-title"
+                  placeholder="Enter blog Title"
+                />
+                <label for="blog-image">
+                  <img src="./images/icons/message.png" alt="" />
+                  <p>Choose Blog Image</p>
+                </label>
+                <input type="file" name="" id="blog-image" />
+                <textarea
+                  id="add-blog-description"
+                  placeholder="Enter Blog description #markdown supported"
+                ></textarea>
+                <input type="submit" value="Submit" />
+                <button class="blog-cancel">Cancel</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="newsletter" id="newsletter">
+          <h3>Newsletter Subscribers</h3>
+          <div class="subscriber">
+            <img src="../images/me.png" alt="" />
+            <div class="data">
+              <p>John Doe</p>
+              <p>johndoe2gmail.com</p>
+            </div>
+            <div class="newsletter-acts">
+              <button id="delete-subscriber" class="unsub">Unsubscribe</button>
+            </div>
+          </div>
+          <div class="subscriber">
+            <img src="../images/me.png" alt="" />
+            <div class="data">
+              <p>John Doe</p>
+              <p>johndoe2gmail.com</p>
+            </div>
+            <div class="newsletter-acts">
+              <button id="delete-subscriber" class="unsub">Unsubscribe</button>
+            </div>
+          </div>
+          <div class="subscriber">
+            <img src="../images/me.png" alt="" />
+            <div class="data">
+              <p>John Doe</p>
+              <p>johndoe2gmail.com</p>
+            </div>
+            <div class="newsletter-acts">
+              <button id="delete-subscriber" class="unsub">Unsubscribe</button>
+            </div>
+          </div>
+          <div class="subscriber">
+            <img src="../images/me.png" alt="" />
+            <div class="data">
+              <p>John Doe</p>
+              <p>johndoe2gmail.com</p>
+            </div>
+            <div class="newsletter-acts">
+              <button id="delete-subscriber" class="unsub">Unsubscribe</button>
+            </div>
+          </div>
+          <div class="tooltip">+</div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/index.js"></script>
+    <script src="./js/dashboard.js"></script>
+    <script src="./js/messages.js"></script>
+    <script src="./js/blog.js"></script>
+  </body>
+</html>

@@ -57,16 +57,22 @@ nav a :hover {
   border-radius: 5px;
 }
 
+.sidebar a {
+  font-size: 18px;
+}
+
+.sidebar a:nth-last-child() {
+  padding-bottom: 20px;
+}
+
 .sidebar {
   display: none;
-  background-color: red;
   position: absolute;
-  top: 52px;
+  top: 0;
   right: 0;
+  background: red;
+  padding: 20px;
   width: 60%;
-  padding: 10px;
-  background: #292b2c;
-  border-bottom-left-radius: 10px;
 }
 .test {
   margin-top: auto;
