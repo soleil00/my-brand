@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/navbar.css" />
     <link rel="stylesheet" href="./css/index.css" />
-    <link rel="stylesheet" href="./css/blog-details.css" />
+    <link rel="stylesheet" href="./css/login.css" />
     <title>Document</title>
   </head>
   <body>
@@ -18,11 +18,18 @@
       </div>
     </nav>
     <main class="common">
-      <form action="" id="login-form" class="login-form">
-        <input type="text" placeholder="Email" />
-        <input type="text" placeholder="Password" />
-        <input type="submit" value="Login" />
+      <form id="login-form" class="login-form">
+        <input type="text" placeholder="Email or Username" id="username" />
+        <input type="password" placeholder="Password" id="password" />
+        <input type="submit" value="Login" class="btn" />
+
+        <p class="or">OR</p>
+        <div class="google">
+          <img src="./images/GOOGLE (1).png" alt="" />
+          <p>Continue With Google</p>
+        </div>
       </form>
     </main>
+    <script src="./javascript/login.js"></script>
   </body>
 </html>

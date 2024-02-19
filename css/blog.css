@@ -46,6 +46,8 @@
 
 .blog {
   background: white;
+  box-shadow: 2px 1px 10px rgba(0, 0, 0, 0.5);
+  position: relative;
 }
 
 .blog-container {
@@ -68,6 +70,25 @@
 
 .blog-description {
   padding: 10px;
+}
+
+.stats {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  /* position: absolute;
+  top: 2px;
+  right: 2px; */
+}
+
+.stats .messs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stats .messs img {
+  width: 20px;
 }
 
 .blog p {

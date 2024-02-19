@@ -1,14 +1,12 @@
-const scrollBtn = document.getElementById("scroll-btn");
-const blogCategories = document.getElementById("blog-categories");
+const categories = document.querySelectorAll(".blog-category");
 
-scrollBtn.addEventListener("click", () => {
-  const maxScroll = blogCategories.scrollWidth - blogCategories.clientWidth;
-  const currentScroll = blogCategories.scrollLeft;
-  const targetScroll = currentScroll - 10;
+categories.forEach(function (category) {
+  category.addEventListener("click", function (event) {
+    event.preventDefault();
+    categories.forEach(function (otherCategory) {
+      otherCategory.classList.remove("active");
+    });
 
-  if (targetScroll < 0) {
-    blogCategories.scrollTo({ left: maxScroll, behavior: "smooth" });
-  } else {
-    blogCategories.scrollTo({ left: targetScroll, behavior: "smooth" });
-  }
+    this.classList.add("active");
+  });
 });

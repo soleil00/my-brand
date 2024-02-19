@@ -1,0 +1,144 @@
+.messages {
+  padding: 10px;
+  position: relative;
+  /* width: calc(100% - 20%); */
+}
+
+.message {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  background: #ddd9d9;
+  border-radius: 10px;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.message-right {
+  display: flex;
+  align-items: center;
+  width: 30%;
+  gap: 20px;
+}
+.message-right button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 10px;
+  color: white;
+}
+
+.message-right button:nth-child(1) {
+  background: #1400ff;
+}
+.message-right button:nth-child(2) {
+  background: #ff2e00;
+}
+
+.delete-model,
+.form-setting {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  width: 50%;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 2px -1px 4px 5px rgba(0, 0, 0, 0.4);
+  z-index: 100;
+  display: none;
+}
+
+.delete-model-content .buttons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.delete-model-content .buttons button {
+  padding: 5px;
+  border-radius: 10px;
+  border: none;
+}
+
+.repl,
+.delete,
+.edit-blog,
+.delete-blog {
+  background: white !important;
+  color: black !important;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  display: none;
+}
+
+.reply-form {
+  width: 100%;
+}
+
+.reply-form input {
+  padding: 5px 10px;
+  border: none;
+  outline: none;
+  background: #b6aaaa;
+  border-radius: 10px;
+}
+
+.reply-form input:nth-child(1) {
+  margin-top: 10px;
+}
+.reply-form input:nth-child(3) {
+  margin: 20px 0 10px 0;
+}
+
+.reply-form input::placeholder {
+  color: white;
+}
+
+.reply-form textarea {
+  max-width: 100%;
+  width: 100%;
+  min-height: 120px;
+  border-radius: 5px;
+  border: none;
+  background: #bfb2b2;
+  margin-top: 10px;
+}
+
+.reply-form button {
+  background: red;
+  padding: 5px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+}
+
+@media only screen and (max-width: 460px) {
+  .delete-model,
+  .form-setting {
+    width: 80%;
+  }
+
+  .message {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+@media only screen and (max-width: 786px) {
+  .delete-model,
+  .form-setting {
+    width: 60%;
+  }
+}

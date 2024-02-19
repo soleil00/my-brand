@@ -17,17 +17,17 @@
   <body>
     <!-- nabvar starts here -->
     <nav>
-      <a href="#">SoleilApp</a>
+      <h3>SoleilApp</h3>
       <ul>
-        <li><a href="#home">Home</a></li>
+        <li><a href="#hero">Home</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#blog">Blog</a></li>
+        <li><a href="#projects">Portfolio</a></li>
+        <li><a href="#blogs">Blog</a></li>
       </ul>
 
       <div class="nav-right">
-        <a href="#home">NewsLetter</a>
-        <a href="#about">Contact Me</a>
+        <a href="#contact-me">NewsLetter</a>
+        <a href="#contact-me">Contact Me</a>
       </div>
       <div class="burger" id="burger">
         <span></span>
@@ -35,18 +35,19 @@
         <span></span>
       </div>
       <div class="sidebar" id="sidebar">
-        <a href="#home">Home</a>
+        <button>X</button>
+        <a href="#hero">Home</a>
         <a href="#about">About</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#blog">Blog</a>
-        <a href="#home" class="test">NewsLetter</a>
-        <a href="#about">Contact Me</a>
+        <a href="#projects">Portfolio</a>
+        <a href="#blogs">Blog</a>
+        <a href="#contact-me" class="test">NewsLetter</a>
+        <a href="#contact-me">Contact Me</a>
       </div>
     </nav>
     <!-- navbar ends here -->
 
     <!-- hero section starts here -->
-    <div class="hero-section common">
+    <div class="hero-section common reveals" id="hero">
       <div class="hero-left">
         <h3>Hey , I'm</h3>
         <h2 id="track-text">
@@ -61,76 +62,111 @@
         </p>
       </div>
       <div class="hero-right">
-        <img src="./images/ssss.jpg" alt="some image here" />
+        <img
+          src="./images/stacks/fullstack.webp"
+          alt="some image here"
+          class="sm-hidden"
+          id="track-image"
+        />
+        <img
+          src="./images/stacks/web3.png"
+          alt="some image here"
+          class="sm-block"
+        />
       </div>
     </div>
     <!-- hero section ends here -->
 
     <!-- About section Starts here -->
-    <div class="about common">
-      <div class="about-intro">
-        <h4>About Me</h4>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur
-          quod fugiat illum repudiandae quaerat itaque quidem! Illum beatae
-          ipsam reprehenderit quia maxime distinctio. Similique odio doloribus
-          nulla quo voluptate quis.
-        </p>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur
-          quod fugiat illum repudiandae quaerat itaque quidem! Illum beatae
-          ipsam reprehenderit quia maxime distinctio. Similique odio doloribus
-          nulla quo voluptate quis.
-        </p>
-      </div>
-      <div class="about-right">
-        <img src="./images/me.png" alt="my image" />
+    <div class="flex reveals">
+      <div class="about common reveals" id="about">
+        <div class="about-intro">
+          <h4>About Me</h4>
+          <p class="all-p">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur
+            quod fugiat illum repudiandae quaerat itaque quidem! Illum beatae
+            ipsam reprehenderit quia maxime distinctio. Similique odio doloribus
+            nulla quo voluptate quis.
+          </p>
+          <p class="all-p">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur
+            quod fugiat illum repudiandae quaerat itaque quidem! Illum beatae
+            ipsam reprehenderit quia maxime distinctio. Similique odio doloribus
+            nulla quo voluptate quis.
+          </p>
+        </div>
+        <div class="about-right">
+          <img src="./images/me.png" alt="my image" />
+        </div>
       </div>
     </div>
     <!-- About section ends here -->
 
     <!-- skills sections starts here -->
-    <div class="skills common">
-      <h4>My Skills</h4>
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi soluta
-        dolorum blanditiis non quis suscipit nobis. Doloribus minima
-        accusantium, ipsum, vero commodi corporis vitae culpa assumenda debitis
-        sit laboriosam maiores?
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi soluta
-        dolorum blanditiis non quis suscipit nobis. Doloribus minima
-        accusantium, ipsum, vero commodi corporis vitae culpa assumenda debitis
-        sit laboriosam maiores?
-      </p>
-      <div class="slides" id="slides">
-        <div class="slide-container" id="slide-container">
-          <img src="./images/ssss.jpg" class="image" />
-          <img src="./images/ssss.jpg" class="image" />
-          <img src="./images/ssss.jpg" class="image" />
-          <img src="./images/ssss.jpg" class="image" />
-          <img src="./images/ssss.jpg" class="image" />
-          <img src="./images/ssss.jpg" class="image" />
-          <img src="./images/ssss.jpg" class="image" />
-          <img src="./images/ssss.jpg" class="image" />
-          <img src="./images/ssss.jpg" class="image" />
-          <img src="./images/ssss.jpg" class="image" />
-          <img src="./images/ssss.jpg" class="image" />
-          <img src="./images/ssss.jpg" class="image" />
-          <img src="./images/ssss.jpg" class="image" />
-          <img src="./images/ssss.jpg" class="image" />
-          <img src="./images/ssss.jpg" class="image" />
-          <img src="./images/ssss.jpg" class="image" />
-          <img src="./images/ssss.jpg" class="image" />
-          <img src="./images/ssss.jpg" class="image" />
+    <div class="flex">
+      <div class="skills common reveals" id="skills">
+        <h4>My Skills</h4>
+        <p class="all-p">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi soluta
+          dolorum blanditiis non quis suscipit nobis. Doloribus minima
+          accusantium, ipsum, vero commodi corporis vitae culpa assumenda
+          debitis sit laboriosam maiores?
+        </p>
+        <p class="all-p">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi soluta
+          dolorum blanditiis non quis suscipit nobis. Doloribus minima
+          accusantium, ipsum, vero commodi corporis vitae culpa assumenda
+          debitis sit laboriosam maiores?
+        </p>
+        <div class="slides" id="slides">
+          <div class="slide-container" id="slide-container">
+            <img src="./images/stacks/appwrite.png" class="image" />
+            <img src="./images/stacks/docker.png" class="image" />
+            <img src="./images/stacks/express.png" class="image" />
+            <img src="./images/stacks/firebase.png" class="image" />
+            <img src="./images/stacks/java.png" class="image" />
+            <img src="./images/stacks/mongodb.webp" class="image" />
+            <img src="./images/stacks/mui.png" class="image" />
+            <img src="./images/stacks/native.png" class="image" />
+            <img src="./images/stacks/nextjs.png" class="image" />
+            <img src="./images/stacks/nodejs.webp" class="image" />
+            <img src="./images/stacks/react.png" class="image" />
+            <img src="./images/stacks/sanity.webp" class="image" />
+            <img src="./images/stacks/springboot.png" class="image" />
+            <img src="./images/stacks/tailwind.png" class="image" />
+            <img src="./images/stacks/thymeleaf.png" class="image" />
+            <img src="./images/stacks/ts.png" class="image" />
+            <img src="./images/stacks/solidity.png" class="image" />
+          </div>
+        </div>
+        <div class="slides2" id="slides2">
+          <div class="slide-container2" id="slide-container2">
+            <img src="./images/stacks/appwrite.png" class="image" />
+            <img src="./images/stacks/docker.png" class="image" />
+            <img src="./images/stacks/express.png" class="image" />
+            <img src="./images/stacks/firebase.png" class="image" />
+            <img src="./images/stacks/java.png" class="image" />
+            <img src="./images/stacks/mongodb.webp" class="image" />
+            <img src="./images/stacks/mui.png" class="image" />
+            <img src="./images/stacks/native.png" class="image" />
+            <img src="./images/stacks/nextjs.png" class="image" />
+            <img src="./images/stacks/nodejs.webp" class="image" />
+            <img src="./images/stacks/react.png" class="image" />
+            <img src="./images/stacks/sanity.webp" class="image" />
+            <img src="./images/stacks/springboot.png" class="image" />
+            <img src="./images/stacks/tailwind.png" class="image" />
+            <img src="./images/stacks/thymeleaf.png" class="image" />
+            <img src="./images/stacks/ts.png" class="image" />
+            <img src="./images/stacks/solidity.png" class="image" />
+          </div>
         </div>
       </div>
     </div>
     <!-- skills sections ends here -->
 
     <!-- Projects sections starts here -->
-    <div class="common projects">
+
+    <div class="common projects reveals" id="projects">
       <h4>My Recent Projects</h4>
       <div class="projects-container">
         <div class="project">
@@ -178,62 +214,118 @@
     <!-- Projects sections ends here -->
 
     <!-- blogs sections starts here -->
-    <div class="common blogs">
+    <div class="common blogs reveals" id="blogs">
       <h4>Blogs</h4>
       <div class="blog-categories" id="blog-categories">
         <button class="scroll-btn" id="scroll-btn">></button>
-        <p class="blog-category active" id="all">All Blogs</p>
-        <p class="blog-category" id="solidity">Solidity</p>
-        <p class="blog-category" id="nextjs">Nextjs</p>
-        <p class="blog-category" id="nodejs">Nodejs</p>
-        <p class="blog-category" id="react-native">React Native</p>
+        <p class="blog-category all-p active" id="all">All Blogs</p>
+        <p class="blog-category all-p" id="solidity">Solidity</p>
+        <p class="blog-category all-p" id="nextjs">Nextjs</p>
+        <p class="blog-category all-p" id="nodejs">Nodejs</p>
+        <p class="blog-category all-p" id="react-native">React Native</p>
       </div>
       <div class="blog-container">
         <a href="./blog.html" class="blog">
           <img src="./images/ssss.jpg" alt="blog image here" />
           <div class="blog-description">
-            <h5>NextJs 14 Server Actions</h5>
-            <p>some lorem ipsum dorem some lorem ipsum dorem</p>
+            <div class="stats">
+              <div class="messs">
+                <img src="./images/social/message.png" alt="" />
+                <p>10</p>
+              </div>
+              <div class="messs">
+                <img src="./images/social/likes (1).png" alt="" />
+                <p>23</p>
+              </div>
+            </div>
+            <h5 class="title">NextJs 14 Server Actions</h5>
+            <p class="block">some lorem ipsum dorem some lorem ipsum dorem</p>
           </div>
         </a>
         <a href="./blog.html" class="blog">
           <img src="./images/ssss.jpg" alt="blog image here" />
           <div class="blog-description">
-            <h5>NextJs 14 Server Actions</h5>
-            <p>some lorem ipsum dorem some lorem ipsum dorem</p>
+            <div class="stats">
+              <div class="messs">
+                <img src="./images/social/message.png" alt="" />
+                <p>10</p>
+              </div>
+              <div class="messs">
+                <img src="./images/social/likes (1).png" alt="" />
+                <p>23</p>
+              </div>
+            </div>
+            <h5 class="title">NextJs 14 Server Actions</h5>
+            <p class="block">some lorem ipsum dorem some lorem ipsum dorem</p>
           </div>
         </a>
         <a href="./blog.html" class="blog">
           <img src="./images/ssss.jpg" alt="blog image here" />
           <div class="blog-description">
-            <h5>NextJs 14 Server Actions</h5>
-            <p>some lorem ipsum dorem some lorem ipsum dorem</p>
+            <div class="stats">
+              <div class="messs">
+                <img src="./images/social/message.png" alt="" />
+                <p>10</p>
+              </div>
+              <div class="messs">
+                <img src="./images/social/likes (1).png" alt="" />
+                <p>23</p>
+              </div>
+            </div>
+            <h5 class="title">NextJs 14 Server Actions</h5>
+            <p class="block">some lorem ipsum dorem some lorem ipsum dorem</p>
           </div>
         </a>
         <a href="./blog.html" class="blog">
           <img src="./images/ssss.jpg" alt="blog image here" />
           <div class="blog-description">
-            <h5>NextJs 14 Server Actions</h5>
-            <p>some lorem ipsum dorem some lorem ipsum dorem</p>
+            <div class="stats">
+              <div class="messs">
+                <img src="./images/social/message.png" alt="" />
+                <p>10</p>
+              </div>
+              <div class="messs">
+                <img src="./images/social/likes (1).png" alt="" />
+                <p>23</p>
+              </div>
+            </div>
+            <h5 class="title">NextJs 14 Server Actions</h5>
+            <p class="block">some lorem ipsum dorem some lorem ipsum dorem</p>
           </div>
         </a>
       </div>
     </div>
+
     <!-- blogs sections ends here -->
 
     <!-- contact me sections starts here -->
-    <div class="common contact-me">
+    <div class="common contact-me reveals" id="contact-me">
       <h4>Contact me</h4>
       <div class="contact-container">
         <div class="contact-left">
           <form action="" id="contact-form">
-            <input class="input" type="text" placeholder="Name" />
-            <input class="input" type="text" placeholder="Email" />
-            <input class="input" type="text" placeholder="Subject" />
+            <input
+              class="input"
+              type="text"
+              placeholder="Name"
+              id="contact-name"
+            />
+            <input
+              class="input"
+              type="text"
+              placeholder="Email"
+              id="contact-email"
+            />
+            <input
+              class="input"
+              type="text"
+              placeholder="Subject"
+              id="contact-subject"
+            />
             <textarea placeholder="Message"></textarea>
             <div class="subscribe">
-              <input class="check" type="checkbox" id="newsletter" />
-              <label for="newsletter">Subscribe to Newsletter</label>
+              <input class="check" type="checkbox" id="is-newsletter-checked" />
+              <label for="is-newsletter-checked">Subscribe to Newsletter</label>
             </div>
 
             <button type="submit">Send</button>
@@ -242,7 +334,7 @@
         <div class="contact-right">
           <div class="contact">
             <img
-              src="./images/ssss.jpg"
+              src="./images/social/on.png"
               alt="conatc image"
               class="contact-mg"
               width="50px"
@@ -251,7 +343,7 @@
           </div>
           <div class="contact">
             <img
-              src="./images/ssss.jpg"
+              src="./images/social/gmail.png"
               alt="conatc image"
               class="contact-mg"
               width="50px"
@@ -260,7 +352,7 @@
           </div>
           <div class="contact">
             <img
-              src="./images/ssss.jpg"
+              src="./images/social/call.png"
               alt="conatc image"
               class="contact-mg"
               width="50px"
@@ -269,7 +361,7 @@
           </div>
           <div class="contact">
             <img
-              src="./images/ssss.jpg"
+              src="./images/social/github.png"
               alt="conatc image"
               class="contact-mg"
               width="50px"
@@ -282,5 +374,6 @@
     <!-- contact me sections ends here -->
     <script src="./javascript/index.js"></script>
     <script src="./javascript/blog.js"></script>
+    <script src="./javascript/herosection.js"></script>
   </body>
 </html>
