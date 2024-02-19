@@ -72,53 +72,16 @@
                   <!-- New column -->
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td class="sm-hidden">
-                    <img src="user1.jpg" alt="User Image" />
-                  </td>
-                  <td>John Doe</td>
-                  <td>john@example.com</td>
-                  <td>Admin</td>
-                  <td class="sm-hidden">2022-01-01</td>
-                  <!-- Example date -->
-                </tr>
-                <tr>
-                  <td class="sm-hidden">
-                    <img src="user2.jpg" alt="User Image" />
-                  </td>
-                  <td>Jane Smith</td>
-                  <td>jane@example.com</td>
-                  <td>User</td>
-                  <td class="sm-hidden">2022-02-15</td>
-                  <!-- Example date -->
-                </tr>
-                <!-- More users can be added here -->
+              <tbody id="table">
+                
+                
               </tbody>
             </table>
-            <div class="recent-subscribers">
+            <div class="recent-subscribers" id="recent-subscribers">
               <h4>Recent Subscribers</h4>
-              <div class="subscriber">
-                <img src="../images/me.png" alt="" />
-                <div class="data">
-                  <p>John Doe</p>
-                  <p>johndoe2gmail.com</p>
-                </div>
-              </div>
-              <div class="subscriber">
-                <img src="../images/me.png" alt="" />
-                <div class="data">
-                  <p>John Doe</p>
-                  <p>johndoe2gmail.com</p>
-                </div>
-              </div>
-              <div class="subscriber">
-                <img src="../images/me.png" alt="" />
-                <div class="data">
-                  <p>John Doe</p>
-                  <p>johndoe2gmail.com</p>
-                </div>
-              </div>
+              
+              
+              
             </div>
           </div>
           <canvas id="userChart" width="400" height="200"></canvas>
@@ -128,36 +91,10 @@
 
         <!-- messages htm starts here -->
         <div class="messages" id="messages">
-          <div class="message" id="message">
-            <div class="message-left">
-              <p><strong>From : </strong> johndoe@gmail.com</p>
-              <p>this is message from john does baba</p>
-            </div>
-            <div class="message-right">
-              <button id="reply" class="repl">Reply</button>
-              <button id="delete" class="delete">Delete</button>
-            </div>
-          </div>
-          <div class="message" id="message">
-            <div class="message-left">
-              <p><strong>From : </strong> johndoe@gmail.com</p>
-              <p>this is message from john does baba</p>
-            </div>
-            <div class="message-right">
-              <button id="reply" class="repl">Reply</button>
-              <button id="delete" class="delete">Delete</button>
-            </div>
-          </div>
-          <div class="message" id="message">
-            <div class="message-left">
-              <p><strong>From : </strong> johndoe@gmail.com</p>
-              <p>this is message from john does baba</p>
-            </div>
-            <div class="message-right">
-              <button id="reply" class="repl">Reply</button>
-              <button id="delete" class="delete">Delete</button>
-            </div>
-          </div>
+         
+      
+         
+
           <div class="overlay" id="overlay">
             <div class="delete-model" id="delete-model">
               <!-- delete model -->
@@ -183,6 +120,8 @@
                 <button class="cancel-reply" id="no">Cancel</button>
               </form>
             </div>
+
+            
           </div>
         </div>
         <!-- messages html end here -->
@@ -253,7 +192,7 @@
 
           <div class="blog-overlay" id="blog-overlay">
             <div class="add-blog-container" id="add-blog-container">
-              <form action="" class="add-blog-form" id="add-blog-form">
+              <form class="add-blog-form" id="add-blog-form">
                 <input
                   type="text"
                   name=""
@@ -270,60 +209,25 @@
                   placeholder="Enter Blog description #markdown supported"
                 ></textarea>
                 <input type="submit" value="Submit" />
-                <button class="blog-cancel">Cancel</button>
+                <!-- <button class="blog-cancel">Cancel</button> -->
               </form>
             </div>
           </div>
         </div>
         <div class="newsletter" id="newsletter">
           <h3>Newsletter Subscribers</h3>
-          <div class="subscriber">
-            <img src="../images/me.png" alt="" />
-            <div class="data">
-              <p>John Doe</p>
-              <p>johndoe2gmail.com</p>
-            </div>
-            <div class="newsletter-acts">
-              <button id="delete-subscriber" class="unsub">Unsubscribe</button>
-            </div>
-          </div>
-          <div class="subscriber">
-            <img src="../images/me.png" alt="" />
-            <div class="data">
-              <p>John Doe</p>
-              <p>johndoe2gmail.com</p>
-            </div>
-            <div class="newsletter-acts">
-              <button id="delete-subscriber" class="unsub">Unsubscribe</button>
-            </div>
-          </div>
-          <div class="subscriber">
-            <img src="../images/me.png" alt="" />
-            <div class="data">
-              <p>John Doe</p>
-              <p>johndoe2gmail.com</p>
-            </div>
-            <div class="newsletter-acts">
-              <button id="delete-subscriber" class="unsub">Unsubscribe</button>
-            </div>
-          </div>
-          <div class="subscriber">
-            <img src="../images/me.png" alt="" />
-            <div class="data">
-              <p>John Doe</p>
-              <p>johndoe2gmail.com</p>
-            </div>
-            <div class="newsletter-acts">
-              <button id="delete-subscriber" class="unsub">Unsubscribe</button>
-            </div>
-          </div>
+          
+          
+          
+          
           <div class="tooltip">+</div>
         </div>
       </div>
     </div>
-    <script src="./js/index.js"></script>
-    <script src="./js/dashboard.js"></script>
-    <script src="./js/messages.js"></script>
-    <script src="./js/blog.js"></script>
+    <script type="module" src="./js/index.js"></script>
+    <script type="module" src="./js/dashboard.js"></script>
+    <script type="module" src="./js/messages.js"></script>
+    <script type="module" src="./js/blog.js"></script>
+    <script type="module" src="./js/newsletter.js"></script>
   </body>
 </html>
