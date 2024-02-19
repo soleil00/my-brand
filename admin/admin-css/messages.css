@@ -136,9 +136,3 @@
   }
 }
 
-@media only screen and (max-width: 786px) {
-  .delete-model,
-  .form-setting {
-    width: 60%;
-  }
-}
