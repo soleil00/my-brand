@@ -27,6 +27,7 @@ links.forEach((link) => {
     const targetContent = document.getElementById(targetId);
     if (targetContent) {
       targetContent.style.display = "block";
+      sidebar.style.display = "none"
     }
   });
 });
