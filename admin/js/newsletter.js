@@ -1,10 +1,23 @@
+const newsletters = document.getElementById("newsletter");
+let subscribers = JSON.parse(localStorage.getItem("subscribers")) || [];
 
-const newsletters = document.getElementById("newsletter")
+const fetchSubscribers = () => {
+  subscribers = JSON.parse(localStorage.getItem("subscribers")) || [];
+  const subscriberCount = document.getElementById("subscriber-count")
+  subscriberCount.innerHTML = `${subscribers.length} Subscribers`;
 
+}
 
-const subscribers = JSON.parse(localStorage.getItem("subscribers")) || []
-
-subscribers.forEach((sub,index) => { 
+function renderSubscribers() {
+  newsletters.innerHTML = ""; 
+  
+  if (subscribers.length === 0) {
+    newsletters.innerHTML = "<div>No Subscribers Yet</div>";
+    return;
+  }
+  
+  subscribers.forEach((sub, index) => {
+    const id = `delete-${index}`;
     const html = `<div class="subscriber">
             <img src="../images/me.png" alt="" />
             <div class="data">
@@ -12,9 +25,20 @@ subscribers.forEach((sub,index) => {
               <p>${sub.email}</p>
             </div>
             <div class="newsletter-acts">
-              <button id="delete-subscriber" class="unsub">Unsubscribe</button>
+              <button id="${id}" class="unsub">Unsubscribe</button>
             </div>
           </div>`;
-    
+
     newsletters.insertAdjacentHTML("beforeend", html);
-})
+
+    const unsubscribe = document.getElementById(id);
+    unsubscribe.addEventListener("click", () => {
+      subscribers.splice(index, 1);
+      localStorage.setItem("subscribers", JSON.stringify(subscribers));
+      renderSubscribers(); 
+      fetchSubscribers();
+    });
+  });
+}
+
+renderSubscribers();
