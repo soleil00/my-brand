@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./admin-css/messages.css" />
     <link rel="stylesheet" href="./admin-css/blogs.css" />
     <link rel="stylesheet" href="./admin-css/newsletter.css" />
+    <script src="https://cdn.tiny.cloud/1/s7py3fvp0fe4h80r14gj8p9kyy38u8kqpn0emz2zmfwfyw3t/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <title>Admin dashboard</title>
   </head>
   <body>
@@ -23,6 +24,7 @@
           <p class="">Messages</p>
           <p class="">Blogs</p>
           <p class="">Newsletter</p>
+          <p class="">AddBlog</p>
         </div>
       </div>
       <div class="top-bar">
@@ -135,6 +137,28 @@
           <div class="blog-container" id="blog-cont">
             
 
+          <div class="edit-overlay" id="edit-overlay">
+            <div class="add-blog-container" id="add-blog-container">
+              <form class="add-blog-form" id="edit-blog-form">
+                <input
+                  type="text"
+                  name=""
+                  id="edit-blog-title"
+                  placeholder="Enter blog Title"
+                  value="blog title here"
+                  style="margin-bottom: 10px;"
+                />
+              
+  
+               <textarea id="edit-blog-description">
+                    The Andela Technical Leadership Program (ATLP) is a 9-month program that covers the technology
+                </textarea>
+
+                <input type="submit" value="Submit" />
+                <button class="blog-cancel close-btn">Cancel</button>
+              </form>
+            </div>
+          </div>
           <div class="blog-overlay" id="blog-overlay">
             <div class="add-blog-container" id="add-blog-container">
               <form class="add-blog-form" id="add-blog-form">
@@ -158,18 +182,43 @@
               </form>
             </div>
           </div>
+          
         </div>
+        
+  
+      </div>
+            
+        <div class="rich-add-blog" id="addblog">
+          <h3>Newsletter Subscribers</h3>
+          <!-- <textarea id=""></textarea> -->
+          <textarea id="mytextarea">Hello, World!</textarea>
+        </div>
+
         <div class="newsletter" id="newsletter">
           <h3>Newsletter Subscribers</h3>
           
           <div class="tooltip">+</div>
         </div>
-      </div>
     </div>
     <script type="module" src="./js/index.js"></script>
     <script type="module" src="./js/dashboard.js"></script>
     <script type="module" src="./js/messages.js"></script>
     <script type="module" src="./js/blog.js"></script>
     <script type="module" src="./js/newsletter.js"></script>
+    <script type="module" src="./js/textarea.js"></script>
+    <script>
+  tinymce.init({
+    selector: '#mytextarea',
+    plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
+    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+    tinycomments_mode: 'embedded',
+    tinycomments_author: 'Author name',
+    mergetags_list: [
+      { value: 'First.Name', title: 'First Name' },
+      { value: 'Email', title: 'Email' },
+    ],
+    ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
+  });
+</script>
   </body>
 </html>

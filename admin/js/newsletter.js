@@ -31,13 +31,13 @@ function renderSubscribers() {
 
     newsletters.insertAdjacentHTML("beforeend", html);
 
-    const unsubscribe = document.getElementById(id);
-    unsubscribe.addEventListener("click", () => {
-      subscribers.splice(index, 1);
-      localStorage.setItem("subscribers", JSON.stringify(subscribers));
-      renderSubscribers(); 
-      fetchSubscribers();
-    });
+    // const unsubscribe = document.getElementById(id);
+    // unsubscribe.addEventListener("click", () => {
+    //   subscribers.splice(index, 1);
+    //   localStorage.setItem("subscribers", JSON.stringify(subscribers));
+    //   renderSubscribers(); 
+    //   fetchSubscribers();
+    // });
   });
 }
 

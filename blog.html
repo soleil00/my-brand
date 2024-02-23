@@ -12,31 +12,26 @@
   <body>
     <nav>
       <h3>SoleilApp</h3>
-      <div class="acts">
-        <a href="./index.html">Back Home</a>
-        <a href="./index.html">NewsLetter</a>
+      <div class="acts blog-links">
+        <a href="./index.html">Home</a>
+        <!-- <a href="./index.html">NewsLetter</a> -->
         <a href="./login.html">Login</a>
       </div>
     </nav>
     <main class="common testing">
       <div class="main-left">
-        <h3>Nextjs 14 server actions updated</h3>
+        <h3 id="blog-title">Nextjs 14 server actions updated</h3>
         <img src="./images/ssss.jpg" alt="blog imaeg" />
-        <p>
+        <p id="blog-description">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut aperiam
           veniam illum nobis soluta sunt eligendi consectetur natus recusandae?
           Eaque, ea dolores quod consequatur minus saepe delectus iure iusto
           praesentium .
         </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut aperiam
-          veniam illum nobis soluta sunt eligendi consectetur natus recusandae?
-          Eaque, ea dolores quod consequatur minus saepe delectus iure iusto
-          praesentium .
-        </p>
+       
         <div>
           <h3>Comments</h3>
-          <div class="comments-container">
+          <div class="comments-container" id="">
             <div class="comment">
               <img src="./images/ssss.jpg" alt="clasas" />
               <div>
@@ -57,45 +52,18 @@
                 class="commm"
                 type="text"
                 placeholder="Enter comments"
-                id="name"
+                id="comment-content"
               />
               <button type="submit">Comment</button>
             </form>
           </div>
         </div>
       </div>
-      <div class="main-right">
+      <div class="main-right" id="related-blogs">
         <h3>Related Blogs</h3>
-        <div class="related-blog">
-          <img src="./images/ssss.jpg" alt="" />
-          <div>
-            <h5>NextJs 14 Server Actions</h5>
-            <p>some lorem ipsum dorem some lorem ipsum dorem</p>
-          </div>
-        </div>
-        <div class="related-blog">
-          <img src="./images/ssss.jpg" alt="" />
-          <div>
-            <h5>NextJs 14 Server Actions</h5>
-            <p>some lorem ipsum dorem some lorem ipsum dorem</p>
-          </div>
-        </div>
-        <div class="related-blog">
-          <img src="./images/ssss.jpg" alt="" />
-          <div>
-            <h5>NextJs 14 Server Actions</h5>
-            <p>some lorem ipsum dorem some lorem ipsum dorem</p>
-          </div>
-        </div>
-        <div class="related-blog">
-          <img src="./images/ssss.jpg" alt="" />
-          <div>
-            <h5>NextJs 14 Server Actions</h5>
-            <p>some lorem ipsum dorem some lorem ipsum dorem</p>
-          </div>
-        </div>
+        
 
-        <form action="" id="newsletter" class="newsletter">
+        <!-- <form action="" id="newsletter" class="newsletter">
           <input
             class="email"
             type="text"
@@ -108,8 +76,9 @@
             value="Subscribe"
             id="newsletter-send"
           />
-        </form>
+        </form> -->
       </div>
     </main>
+    <script src="./javascript/blog-detail.js"></script>
   </body>
 </html>
