@@ -34,7 +34,7 @@
           <span class="line"></span>
         </div>
 
-        <img src="../images/me.png" alt="some imegae" />
+        <img src="../images/me.png" alt="some imegae" id="logout" />
       </div>
       <div class="main-contents">
         <!-- dashboard html -->
@@ -189,9 +189,11 @@
       </div>
             
         <div class="rich-add-blog" id="addblog">
-          <h3>Newsletter Subscribers</h3>
-          <!-- <textarea id=""></textarea> -->
-          <textarea id="mytextarea">Hello, World!</textarea>
+          <h3 style="margin-bottom: 10px;">Add NewBlog</h3>
+          <form id="new-blog-form">
+            <textarea id="mytextarea"></textarea>
+            <input type="submit" value="add">
+          </form>
         </div>
 
         <div class="newsletter" id="newsletter">
@@ -206,6 +208,7 @@
     <script type="module" src="./js/blog.js"></script>
     <script type="module" src="./js/newsletter.js"></script>
     <script type="module" src="./js/textarea.js"></script>
+    <!-- <script type="module" src="./js/t.js"></script> -->
     <script>
   tinymce.init({
     selector: '#mytextarea',
@@ -220,5 +223,6 @@
     ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
   });
 </script>
+<script src="./js/admin.js"></script>
   </body>
 </html>

@@ -4,6 +4,10 @@ const email = document.getElementById('contact-email');
 const subject = document.getElementById('contact-subject');
 const message = document.getElementById('contact-message');
 const isubscribedToNewsletter = document.getElementById('is-newsletter-checked');
+const errorMessage = document.getElementById('error-message');
+const emailErrorMessage = document.getElementById('email-message');
+
+
 
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
@@ -16,12 +20,21 @@ contactMeForm.addEventListener('submit', (e) => {
     const messageValue = message.value.trim();
 
     if (!nameValue || !emailValue || !subjectValue || !messageValue) {
-        alert('Please fill in all fields');
+        errorMessage.style.display = 'block';
+        errorMessage.textContent = "Please fill out all fields"
+        setTimeout(() => {
+            errorMessage.style.display="none"
+        }, 5000);
         return;
     }
 
     if (!emailRegex.test(emailValue)) {
-        alert('Please enter a valid email address');
+        emailErrorMessage.style.display = 'block';
+        emailErrorMessage.textContent = 'Please enter a valid email address'
+        
+        setTimeout(() => {
+            emailErrorMessage.style.display="none"
+        }, 5000);
         return;
     }
 
