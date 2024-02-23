@@ -7,27 +7,31 @@
     <link rel="stylesheet" href="./css/navbar.css" />
     <link rel="stylesheet" href="./css/index.css" />
     <link rel="stylesheet" href="./css/login.css" />
+
     <title>Document</title>
   </head>
   <body>
     <nav>
       <h3>SoleilApp</h3>
       <div class="acts">
-        <a href="./index.html">Back Home</a>
+        <a href="./index.html">Home</a>
         <a href="./register.html">Register</a>
       </div>
     </nav>
     <main class="common">
       <form id="login-form" class="login-form">
+      
         <input type="text" placeholder="Email or Username" id="username" />
         <input type="password" placeholder="Password" id="password" />
+        <p class="error" id="user-error"></p>
         <input type="submit" value="Login" class="btn" />
 
-        <p class="or">OR</p>
-        <div class="google">
+        <!-- <p class="or">OR</p> -->
+        <!-- <div class="google">
           <img src="./images/GOOGLE (1).png" alt="" />
           <p>Continue With Google</p>
-        </div>
+        </div> -->
+        <a class="admin" href="./index.html">If you are not admin go back home</a>
       </form>
     </main>
     <script src="./javascript/login.js"></script>

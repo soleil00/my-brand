@@ -45,6 +45,15 @@
   width: 100%;
 }
 
+.error {
+  color: red;
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center;
+  /* margin-top: 5px; */
+  display: none;
+}
+
 .contact-left form button {
   padding: 10px;
   border-radius: 20px;

@@ -156,7 +156,8 @@ blogContainer.addEventListener("click", (e) => {
 
 }
 
+renderBlogs()
 
-renderBlogs();
+
 
 
