@@ -8,6 +8,12 @@ const blogDescription = document.getElementById("add-blog-description");
 const blogImage = document.getElementById("blog-image");
 const blogCount = document.getElementById("blog-count");
 const blogContainer = document.getElementById("blog-cont");
+const editOverlay = document.getElementById("edit-overlay");
+
+///edit blog form
+
+
+
 
 const fetchBlogs = () => {
   blogCount.innerHTML = `${blogs.length} Blogs`
@@ -28,6 +34,9 @@ function showBlogOverlay() {
 function hideBlogOverlay() {
   blogOverlay.style.display = "none";
 }
+function hideEditOverlay() {
+  editOverlay.style.display = "none";
+}
 
 addBlogButton.addEventListener("click", () => {
   showBlogOverlay();
@@ -39,9 +48,14 @@ blogOverlay.addEventListener("click", (e) => {
     hideBlogOverlay();
   }
 });
+editOverlay.addEventListener("click", (e) => {
+  if (e.target === blogOverlay || e.target.classList.contains("close-btn")) {
+    hideEditOverlay();
+  }
+});
 
 blogForm.addEventListener("submit", (e) => {
-  e.preventDefault();
+  // e.preventDefault();
 
   if (!blogTitle.value || !blogImage.value || !blogDescription.value) {
     alert("Please fill out all fields");
@@ -51,7 +65,9 @@ blogForm.addEventListener("submit", (e) => {
   const blog = {
     title: blogTitle.value,
     description: blogDescription.value,
-    image: blogImage.value
+    image: blogImage.value,
+    comments: [],
+    likes:[]
   }
 
   
@@ -60,7 +76,7 @@ blogForm.addEventListener("submit", (e) => {
   
   console.log(blog);
   blogCount.innerHTML = `${blogs.length} Blogs`
-  blogContainer.innerHTML=""
+  // blogContainer.innerHTML=""
 
   clearForm();
   hideBlogOverlay();
@@ -75,6 +91,7 @@ const renderBlogs = () => {
 
 blogs.forEach((blog, index) => {
   const idToDelete = `delete-${index}`;
+  const idToEdit = `edit-${index}`;
 
   const html = `<div class="blog">
                   <img src="../images/roadmap.jpg" alt="blog image" />
@@ -83,7 +100,7 @@ blogs.forEach((blog, index) => {
                     <p>${blog.title}</p>
                     <div class="blog-actions">
                       <button id="${idToDelete}">Delete</button>
-                      <button class="edit-blog">Edit</button>
+                      <button class="edit-blog" id="${idToEdit}">Edit</button>
                     </div>
                   </div>
                 </div>`;
@@ -115,8 +132,27 @@ blogContainer.addEventListener("click", (e) => {
       blogContainer.insertAdjacentHTML("beforeend", html);
       fetchBlogs()
     });
+  } else if (e.target.tagName === "BUTTON" && e.target.id.startsWith("edit-")) {
+
+    const index = parseInt(e.target.id.split("-")[1]);
+    const blog = blogs[index];
+    console.log(blog)
+
+    const editBlogForm = document.getElementById("edit-blog-form")
+
+    const editBlogTitle = document.getElementById("edit-blog-title");
+    const editBlogDescription = document.getElementById("edit-blog-description");
+    editBlogTitle.value = blog.title;
+    editBlogDescription.value = blog.description;
+    
+    editOverlay.style.display = "block"
+
+    
+
+
+
   }
-});
+})
 
 }
 
