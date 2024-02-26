@@ -1,11 +1,12 @@
 
-
+const blogTitle = document.getElementById("new-title")
+const blogImage = document.getElementById("new-image")
 const newBlogForm = document.getElementById("new-blog-form");
 const textArea = document.getElementById("mytextarea");
 const blogCount = document.getElementById("blog-count");
 
 newBlogForm.addEventListener("submit", e => {
-    // e.preventDefault();
+    e.preventDefault();
     
     
     const content = tinymce.get('mytextarea').getContent();
@@ -40,4 +41,6 @@ newBlogForm.addEventListener("submit", e => {
     blogCount.textContent = `${blogs.length} Blogs`
 
     newBlogForm.reset();
+
+    console.log("from soleil",blogTitle)
 });

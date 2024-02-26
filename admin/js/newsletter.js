@@ -1,3 +1,6 @@
+
+
+
 const newsletters = document.getElementById("newsletter");
 let subscribers = JSON.parse(localStorage.getItem("subscribers")) || [];
 

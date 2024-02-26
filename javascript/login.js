@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }, 3000);
    }
 
-    // window.location.href = "../admin/index.html";
+
     loginForm.reset()
   });
 

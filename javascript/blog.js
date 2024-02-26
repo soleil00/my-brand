@@ -1,5 +1,5 @@
 const categories = document.querySelectorAll(".blog-category");
-const blogContainer = document.getElementById("blog-container")
+const blogContainer = document.getElementById("mySwipper")
 
 
 categories.forEach(function (category) {
@@ -19,13 +19,16 @@ categories.forEach(function (category) {
 
 const blogs = JSON.parse(localStorage.getItem('blogs')) || [];
 
-blogs.slice(-4).forEach((blog, index) => {
+blogs.forEach((blog, index) => {
  const truncatedDescription = blog.description.length > 30
-    ? blog.description.substring(0, 25) + '... <span style="background-color:red;padding:5px 10px;border-radius:5px;white-space:nowrap;font-size:10px;color:white">Read More</span>'
+    ? blog.description.substring(0, 10) + '... <span style="background-color:red;padding:5px 10px;border-radius:5px;white-space:nowrap;font-size:10px;color:white;height:20px;">Read More</span>'
     : blog.description;
 
+  
 
-  const html = `<div class="blog">
+  const html = ` <swiper-slide>
+  
+  <div class="blog">
     <img src="../images/roadmap.jpg" alt="blog image here" />
     <div class="blog-description">
       <div class="stats">
@@ -38,10 +41,12 @@ blogs.slice(-4).forEach((blog, index) => {
           <p>23</p>
         </div>
       </div>
-      <h5 class="title">${blog.title}</h5>
-      <p class="block">${truncatedDescription}</p>
+      <div class="title">${blog.title}</div>
+      <div class='below-title'>${truncatedDescription}</div>
     </div>
-  </div>`;
+  </div>
+  
+  </swiper-slide>`;
 
   blogContainer.insertAdjacentHTML("beforeend", html);
   const currentBlog = blogContainer.lastElementChild;
