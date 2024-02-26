@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./admin-css/messages.css" />
     <link rel="stylesheet" href="./admin-css/blogs.css" />
     <link rel="stylesheet" href="./admin-css/newsletter.css" />
+    <link rel="stylesheet" href="./admin-css/new-blog.css" />
     <script src="https://cdn.tiny.cloud/1/s7py3fvp0fe4h80r14gj8p9kyy38u8kqpn0emz2zmfwfyw3t/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <title>Admin dashboard</title>
   </head>
@@ -191,6 +192,18 @@
         <div class="rich-add-blog" id="addblog">
           <h3 style="margin-bottom: 10px;">Add NewBlog</h3>
           <form id="new-blog-form">
+            <div style="margin-bottom: 10px;">
+              <label for="new-title">Blog Title</label>
+              <input type="text" id="new-title" class="new-title" placeholder="blog title">
+            </div>
+           
+              <label for="image" class="soleill">
+                <img src="./images/icons/blog.png" alt="" />
+                <div>Choose Blog Image</div>
+              </label>
+              <input type="file" name="" id="new-image" class="new-image">
+           
+            
             <textarea id="mytextarea"></textarea>
             <input type="submit" value="add">
           </form>

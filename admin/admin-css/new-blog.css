@@ -1,0 +1,30 @@
+
+
+.new-title {
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: none;
+    background: rgb(160, 149, 149);
+}
+
+.new-title::placeholder{
+    color: white;
+}
+
+.soleill img {
+    width: 100px;
+}
+
+.soleill {
+    display: flex;
+    /* justify-content: space-around; */
+    justify-items: center;
+    background: rgb(120, 128, 128);
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.new-image {
+    display: none;
+}
