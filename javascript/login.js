@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
       isAdmin: true,
       password: "soleil005",
     },
-    { username: "soleil", email: "test@user.com", password: "test" ,isAdmin: false},
+    { username: "newuser", email: "test@user.com", password: "test" ,isAdmin: false},
   ];
 
   loginForm.addEventListener("submit", function (event) {

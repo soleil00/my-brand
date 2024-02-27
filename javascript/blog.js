@@ -23,18 +23,20 @@ blogs.forEach((blog, index) => {
  const truncatedDescription = blog.description.length > 30
     ? blog.description.substring(0, 10) + '... <span style="background-color:red;padding:5px 10px;border-radius:5px;white-space:nowrap;font-size:10px;color:white;height:20px;">Read More</span>'
     : blog.description;
+  
+  const comment= blog.comments.length
 
   
 
   const html = ` <swiper-slide>
   
   <div class="blog">
-    <img src="../images/roadmap.jpg" alt="blog image here" />
+    <img src=${blog.image} alt="blog image here" />
     <div class="blog-description">
       <div class="stats">
         <div class="messs">
           <img src="./images/social/message.png" alt="" />
-          <p>10</p>
+          <p>${comment}</p>
         </div>
         <div class="messs">
           <img src="./images/social/likes (1).png" alt="" />
