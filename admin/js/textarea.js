@@ -16,7 +16,7 @@ const onFileChange = (e) => {
             blogImage.src = e.target.result;
             showImage.src = e.target.result
             showImage.style.display = "block"
-            label.style.display = "none"
+            // label.style.display = "none"
         };
     }
 };

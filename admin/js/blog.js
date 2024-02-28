@@ -10,10 +10,6 @@ const blogCount = document.getElementById("blog-count");
 const blogContainer = document.getElementById("blog-cont");
 const editOverlay = document.getElementById("edit-overlay");
 
-///edit blog form
-
-
-
 
 const fetchBlogs = () => {
   blogCount.innerHTML = `${blogs.length} Blogs`
@@ -94,7 +90,7 @@ blogs.forEach((blog, index) => {
   const idToEdit = `edit-${index}`;
 
   const html = `<div class="blog">
-                  <img src="../images/roadmap.jpg" alt="blog image" />
+                  <img src=${blog.image} />
                   <div class="blog-description">
                     <p class="blog-category">web3.0</p>
                     <p>${blog.title}</p>
@@ -118,7 +114,7 @@ blogContainer.addEventListener("click", (e) => {
     blogs.forEach((blog, index) => {
       const idToDelete = `delete-${index}`;
       const html = `<div class="blog">
-                      <img src="../images/roadmap.jpg" alt="blog image" />
+                      <img src=${blog.image} alt="blog image" />
                       <div class="blog-description">
                         <p class="blog-category">web3.0</p>
                         <p>${blog.title}</p>
@@ -140,13 +136,29 @@ blogContainer.addEventListener("click", (e) => {
 
     const editBlogForm = document.getElementById("edit-blog-form")
 
+   
+
+    const content = tinymce.get('edit-blog-description').getContent();
+
+    // console.log("from edit blog : " + content)
+
+  
+
     const editBlogTitle = document.getElementById("edit-blog-title");
     const editBlogDescription = document.getElementById("edit-blog-description");
     editBlogTitle.value = blog.title;
-    editBlogDescription.value = blog.description;
-    
+    editBlogDescription.value = blog.description; 
     editOverlay.style.display = "block"
 
+
+    editBlogForm.addEventListener("submit", e => {
+
+      blogs[index].title = editBlogTitle.value
+
+      localStorage.setItem("blogs", JSON.stringify(blogs))
+      console.log("from edit blog : " + content)
+      
+    })
     
 
 
