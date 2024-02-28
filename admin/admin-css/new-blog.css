@@ -28,3 +28,21 @@
 .new-image {
     display: none;
 }
+
+#add {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    background-color: rgb(170, 161, 172);
+    width: 100px;
+    margin-top: 20px;
+
+    float: right;
+}
+
+#show-image{
+    width: 100px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}

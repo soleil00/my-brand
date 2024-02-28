@@ -49,6 +49,7 @@ main {
 
 .main-left img {
   width: 100%;
+  height: 330px;
 }
 .main-left p {
   padding: 10px;
@@ -93,11 +94,25 @@ main {
 .comment {
   display: flex;
   align-items: center;
+  gap: 5px;
+  margin-top: 10px;
 }
 
+.text-1 {
+  color: white;
+  font-size: 17px;
+  font-family: "roboto", "Helvetica Neue", Helvetica, Arial;
+}
+
+.text-2 {
+  color: rgb(177, 160, 160);
+}
+
+
+
 .comment img {
-  width: 50px;
-  height: 50px;
+  width: 50px !important;
+  height: 50px !important;
   border-radius: 30px;
 }
 
@@ -149,8 +164,16 @@ main {
     flex-direction: column;
   }
 
+  .main-left img {
+    width: 100%;
+    height: 230px;
+  }
+
   .main-left {
     width: 100%;
+  }
+  .main-left h3 {
+    font-size: 24px;
   }
   .add-comment {
     flex-direction: column;
@@ -159,6 +182,10 @@ main {
 
   .add-comment input,.add-comment button {
     width: 100%;
+  }
+
+  #blog-description {
+    font-size: 16px;
   }
 
   .main-right {
