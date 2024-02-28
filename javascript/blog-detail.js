@@ -3,6 +3,11 @@ const blogImage = document.getElementById("soleil-image");
 const blogDescription = document.getElementById("blog-description");
 const blogTitle = document.getElementById("blog-title");
 const commentContainer = document.getElementById("comm-cont");
+const logoutButton = document.getElementById("user-logout");
+const loginButton = document.getElementById("user-login");
+const loginOverlay = document.getElementById("soleil-overlay");
+const commentOverlay = document.getElementById("comment-overlay");
+
 
 const relatedBlogs = document.getElementById("related-blogs")
 
@@ -19,9 +24,35 @@ function getQueryParam(param) {
 }
 const blogIndex = getQueryParam("blogId");
 
-const blogs = JSON.parse(localStorage.getItem("blogs")) || []
+const blogs = JSON.parse(localStorage.getItem("blogs")) || [];
 
-const currrentUser = JSON.parse(localStorage.getItem("currentUser")) 
+let currrentUser = JSON.parse(localStorage.getItem("currentUser")) || null;
+
+console.log(logoutButton)
+
+
+
+const handleLogin = () => {
+  if (!currrentUser) {
+  logoutButton.style.display = "none";
+} else {
+  loginButton.style.display = "none"
+}
+}
+
+handleLogin()
+
+
+logoutButton.textContent=currrentUser.username
+
+
+logoutButton.addEventListener("click", () => {
+  loginButton.style.display = "block"
+  console.log("user logged out")
+  localStorage.removeItem("currentUser");
+  currrentUser=null
+  return handleLogin()
+})
 
 const currentBlog = blogs[blogIndex]
 
@@ -39,7 +70,7 @@ commentForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
   if (!comment.value) {
-    alert("Please fill in comment1");
+    commentOverlay.style.display = "flex"
     return;
   }
 
@@ -47,20 +78,46 @@ commentForm.addEventListener("submit", (e) => {
   
 })
 
+const cancel = () => {
+  loginOverlay.style.display = "none"
+}
+const cancel1 = () => {
+  commentOverlay.style.display = "none"
+}
+
+const login = () => { 
+  loginOverlay.style.display = "none"
+  
+  window.location.href='../login.html'
+}
+
 
 
 const loadComments = () => {
   commentContainer.innerHTML = "";
   if (comment.value) {
-    currentBlog.comments.push(comment.value);
+    if (currrentUser) {
+      const newComment = {
+        username:currrentUser.username,
+        body:comment.value
+      }
+      currentBlog.comments.push(newComment);
     commentForm.reset();
+    } else {
+      loginOverlay.style.display = "flex"
+      initilaCommentLoading()
+      return;
+    }
+
+    
+
   }
   blogComments.slice(0-5).reverse().map(content => {
   const html=` <div class="comment">
               <img src="./images/ssss.jpg" alt="clasas" />
               <div>
-                <div class="text-1">${currrentUser.username}</div>
-                <div class="text-2">${content}</div>
+                <div class="text-1">${content.username}</div>
+                <div class="text-2">${content.body}</div>
               </div>
             </div>`
   
@@ -80,8 +137,8 @@ const initilaCommentLoading = () => {
   const html=` <div class="comment">
               <img src="./images/ssss.jpg" alt="clasas" />
               <div>
-                <div class="text-1">${currrentUser.username}</div>
-                <div class="text-2">${content}</div>
+                <div class="text-1">${content.username}</div>
+                <div class="text-2">${content.body}</div>
               </div>
             </div>`
   

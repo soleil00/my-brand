@@ -11,6 +11,9 @@
     color: white;
 }
 
+.soleilgs {
+    margin-bottom: 10px;
+}
 .soleill img {
     width: 100px;
 }
@@ -39,6 +42,13 @@
     margin-top: 20px;
 
     float: right;
+}
+
+.hask {
+    display: flex;
+    align-items: center;
+    float: right;
+    gap: 5px;
 }
 
 #show-image{

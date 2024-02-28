@@ -5,18 +5,29 @@ document.addEventListener("DOMContentLoaded", function () {
   const userError = document.getElementById("user-error");
 
   let validate = 0
+
+  // const adminUser = 
+  //   {
+  //     username: "soleil00",
+  //     email: "soleil00@gmail.com",
+  //     isAdmin: true,
+  //     password: "soleil005",
+  //     role:"admin"
+  //   }
+  // ;
   
   const currentUser = JSON.parse(localStorage.getItem("currentUser"))
 
-  const users = [
-    {
-      username: "soleil00",
-      email: "soleil00@gmail.com",
-      isAdmin: true,
-      password: "soleil005",
-    },
-    { username: "newuser", email: "test@user.com", password: "test" ,isAdmin: false},
-  ];
+  
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+
+  // users.push(adminUser)
+
+  // localStorage.setItem("users", JSON.stringify(users));
+
+  
+
+  
 
   loginForm.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -45,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (user.isAdmin) {
           window.location.href = "../admin/index.html"
         } else {
-          window.location.href = "./blog.html"
+          window.location.href = "./blog.html?blogId=1"
         }
       
       setTimeout(() => {

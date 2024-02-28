@@ -6,13 +6,16 @@
 
 body {
   background: #2c3435;
+  position: relative;
 }
 
 .acts a {
-  margin-left: 20px;
+  
   text-decoration: none;
   color: white;
-  /* display: inline-block; */
+  /* background: blue; */
+  padding: 7px 14px;
+  /* margin-left: 20px; */
 }
 
 nav {
@@ -201,3 +204,95 @@ main {
     margin-left: 0;
   } */
 }
+
+
+
+
+
+.soleil-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    .popup {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        text-align: center;
+    }
+    .popup h3 {
+        font-family: "roboto";
+    }
+
+    .popup p {
+       font-family: "roboto";
+
+       color: #2c3435;
+    }
+    .svg {
+      width: 30px;
+      height: 30px;
+    }
+
+    /* style="display: flex;justify-content: center;align-items: center;gap: 8px;margin-bottom: 10px; */
+
+    .svg-cont {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        margin: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .btn-login {
+        background-color: #007bff;
+        color: #fff;
+    }
+    .btn-cancel {
+        background-color: #dc3545;
+        color: #fff;
+    }
+
+
+
+    @media only screen and (max-width: 768px) {
+      .popup {
+        width: 80%;
+      }
+    }
+
+
+    #user-logout {
+      /* background: blue; */
+      padding: 7px 13px;
+      border: 2px solid red;
+      border-radius: 5px;
+      
+      font-family: "roboto";
+      margin-left: 10px;
+    }
+
+    .blog-links {
+      /* display: flex; */
+      align-items: center;
+    }
+
+    .blog-links a:hover {
+      background: white;
+      color: black;
+    }

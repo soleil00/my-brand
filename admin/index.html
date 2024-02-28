@@ -140,24 +140,31 @@
 
           <div class="edit-overlay" id="edit-overlay">
             <div class="add-blog-container" id="add-blog-container">
+              <!-- starung from here -->
               <form class="add-blog-form" id="edit-blog-form">
-                <input
-                  type="text"
-                  name=""
-                  id="edit-blog-title"
-                  placeholder="Enter blog Title"
-                  value="blog title here"
-                  style="margin-bottom: 10px;"
-                />
-              
-  
-               <textarea id="edit-blog-description">
-                    The Andela Technical Leadership Program (ATLP) is a 9-month program that covers the technology
-                </textarea>
+                
 
-                <input type="submit" value="Submit" />
-                <button class="blog-cancel close-btn">Cancels</button>
+                <div style="margin-bottom: 10px;">Editing Blog</div>
+               
+            <div style="margin-bottom: 10px;">
+              <!-- <label for="new-title">Blog Titlesgfsfs</label> -->
+              <input type="text" id="edit-blog-title" class="new-title" placeholder="blog title">
+            </div>
+           
+  
+           
+            
+            <textarea id="edit-blog-description"></textarea>
+            
+            <div class="hask">
+              <input type="button" value="cancel" id="add" />
+              <input type="submit" value="Edit Blog" id="add" class="close-edit"/>
+            </div>
+        
+                
               </form>
+
+              <!-- ending from here -->
             </div>
           </div>
           <div class="blog-overlay" id="blog-overlay">
@@ -193,8 +200,8 @@
           <h3 style="margin-bottom: 10px;">Add NewBlog</h3>
           <form id="new-blog-form">
             <div style="margin-bottom: 10px;">
-              <label for="new-title">Blog Title</label>
-              <input type="text" id="new-title" class="new-title" placeholder="blog title">
+              <label for="new-title" style="margin-bottom: 10px;">Blog Title</label>
+              <input type="text" id="new-title" class="new-title" placeholder="blog title" style="margin-top: 10px;">
             </div>
            
               <label for="new-image" class="soleill" id="label">
@@ -223,10 +230,11 @@
     <script type="module" src="./js/blog.js"></script>
     <script type="module" src="./js/newsletter.js"></script>
     <script type="module" src="./js/textarea.js"></script>
+    <script type="module" src="./js/editBlog.js"></script>
     <!-- <script type="module" src="./js/t.js"></script> -->
     <script>
   tinymce.init({
-    selector: '#mytextarea',
+    selector: '#mytextarea,#edit-blog-description',
     plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
     toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
     tinycomments_mode: 'embedded',

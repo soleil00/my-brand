@@ -18,6 +18,7 @@ registerForm.addEventListener('submit', (event) => {
         password:passwordValue,
         email: emailValue,
         role: "user",
+        isAdmin: false,
         createdAt: new Date().toISOString()
     }
 
