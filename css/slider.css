@@ -34,4 +34,14 @@ swiper-container {
         font-family: "roboto";
     }
 
-   
+   /* .mobile {
+    background: aqua;
+    padding: 20px;
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 100vh;
+   } */

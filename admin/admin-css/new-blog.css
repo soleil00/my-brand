@@ -4,7 +4,7 @@
     padding: 10px 15px;
     border-radius: 10px;
     border: none;
-    background: rgb(160, 149, 149);
+    /* background: rgb(160, 149, 149); */
 }
 
 .new-title::placeholder{
@@ -49,10 +49,32 @@
     align-items: center;
     float: right;
     gap: 5px;
+    margin-bottom: 1px;
 }
 
 #show-image{
     width: 100px;
     margin-bottom: 10px;
     border-radius: 10px;
+}
+
+
+#soleil-test {
+
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin:10px auto;
+    width: 200px;
+    float: right;
+    background: blue;
+    color: white;
+
+}
+
+
+.mod textarea {
+
+    height: 50px;
+
 }

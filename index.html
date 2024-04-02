@@ -14,6 +14,46 @@
     <link rel="stylesheet" href="./css/contact.css" />
     <link rel="stylesheet" href="./css/slider.css" />
     <title>My Portifolio</title>
+    <style>
+      
+      .loading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 5px;
+      }
+     
+      .spinner {
+        border: 8px solid rgba(0, 0, 0, 0.1); 
+        border-top: 8px solid #3498db; 
+        border-radius: 50%; 
+        width: 100px;
+        height: 100px;
+        animation: spin 1s linear infinite;
+      }
+      
+      .loading11 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 5px;
+      }
+     
+      .spinner11 {
+        border: 8px solid rgba(0, 0, 0, 0.1); 
+        border-top: 8px solid orange; 
+        border-radius: 50%; 
+        width: 30px;
+        height: 30px;
+        animation: spin 1s linear infinite;
+      }
+      
+     
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      </style>
   </head>
   <body>
     <!-- nabvar starts here -->
@@ -24,6 +64,11 @@
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Portfolio</a></li>
         <li><a href="#blogs">Blog</a></li>
+        <!-- <div class="user1" id="user1">
+          <img src="./images/me.png" alt="some imegae" id="logout" />
+          <p id="username">soleil00</p>
+          <button id="logout-btna">Logout</button>
+        </div> -->
       </ul>
 
       <div class="nav-right">
@@ -36,13 +81,18 @@
         <span></span>
       </div>
       <div class="sidebar" id="sidebar">
-        <button>X</button>
-        <a href="#hero">Home</a>
+        <div class="sidebar-x" id="close-x">x</div>
+        <a href="#hero" class="yy">Home</a>
         <a href="#about">About</a>
         <a href="#projects">Portfolio</a>
         <a href="#blogs">Blog</a>
-        <a href="#contact-me" class="test">NewsLetter</a>
-        <a href="#contact-me">Contact Me</a>
+        <a href="#contact-me" class="mob">NewsLetter</a>
+        <a href="#contact-me" class="mob">Contact Me</a>
+        <div class="user1 test" id="user1">
+          <img src="./images/me.png" alt="some imegae" id="logout" />
+          <p id="username">soleil00</p>
+          <button id="logout-btna">Logout</button>
+        </div>
       </div>
     </nav>
     <!-- navbar ends here -->
@@ -241,6 +291,9 @@
    
   </swiper-container>
 
+  <div class="loading" id="loader">
+    <div class="spinner"></div>
+  </div>
 
 
 
@@ -281,7 +334,13 @@
               <label for="is-newsletter-checked">Subscribe to Newsletter</label>
             </div>
 
-            <button type="submit">Send</button>
+            <button type="submit" id="send-ms">
+              <div class="loading11" id="loader11">
+                <div class="spinner11"></div>
+              </div>
+
+              <span>Send</span>
+            </button>
           </form>
         </div>
         <div class="contact-right">
@@ -326,7 +385,7 @@
     </div>
     <!-- contact me sections ends here -->
     <script src="./javascript/index.js"></script>
-    <script src="./javascript/blog.js"></script>
+    <script type="module" src="./javascript/blog.js"></script>
     <script src="./javascript/herosection.js"></script>
     <script src="./javascript/contact.js"></script>
     <script src="./javascript/slider.js"></script>

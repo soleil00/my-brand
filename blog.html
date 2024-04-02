@@ -8,13 +8,95 @@
     <link rel="stylesheet" href="./css/index.css" />
 
     <title>Soleil Blogs</title>
+    <style>
+      .tail {
+        display: flex;
+        gap: 10px;
+        font-size: 25px;
+        align-items: center;
+      }
+
+      .like-holder img {
+        width: 30px;
+        height: 30px;
+      }
+      .like-holder {
+        display: flex;
+        gap: 4px;
+        align-items: center;
+      }
+
+      .like-holder span {
+        font-size: 20px;
+        color: white;
+      }
+
+      .login-btn {
+        background: green;
+        padding: 5px 15px;
+        cursor: pointer;
+      }
+      
+
+      .log {
+        display: flex;
+        /* display: none; */
+        gap: 5px;
+        justify-content: "center";
+        align-items: center;
+        cursor: pointer;
+      }
+
+      .log img {
+        width: 40px;
+        height: 40px;
+        border-radius: 100%
+      }
+      .loading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 5px;
+      }
+     
+      .spinner {
+        border: 8px solid rgba(0, 0, 0, 0.1); 
+        border-top: 8px solid #3498db; 
+        border-radius: 50%; 
+        width: 100px;
+        height: 100px;
+        animation: spin 1s linear infinite;
+      }
+      .loading2 {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        margin-top: 5px;
+
+      }
+     
+      .spinner2 {
+        border: 8px solid rgba(0, 0, 0, 0.5); 
+        border-top: 8px solid #3498db; 
+        border-radius: 50%; 
+        width: 27px;
+        height: 27px;
+        animation: spin 1s linear infinite;
+      }
+      
+     
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      </style>
   </head>
   <body>
 
-    <div class="soleil-overlay" id="soleil-overlay">
+    <div class="soleil-overlay ov2" id="soleil-overlay">
     <div class="popup">
         <h3 class="svg-cont"> <svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ce3680" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM164.1 325.5C182 346.2 212.6 368 256 368s74-21.8 91.9-42.5c5.8-6.7 15.9-7.4 22.6-1.6s7.4 15.9 1.6 22.6C349.8 372.1 311.1 400 256 400s-93.8-27.9-116.1-53.5c-5.8-6.7-5.1-16.8 1.6-22.6s16.8-5.1 22.6 1.6zM144.4 208a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm156.4 25.6c-5.3 7.1-15.3 8.5-22.4 3.2s-8.5-15.3-3.2-22.4c30.4-40.5 91.2-40.5 121.6 0c5.3 7.1 3.9 17.1-3.2 22.4s-17.1 3.9-22.4-3.2c-17.6-23.5-52.8-23.5-70.4 0z"/></svg>Login Required</h3>
-        <p>To comment, please log in or sign up.</p>
+        <p>To <span id="acts"></span>, please log in or sign up.</p>
         <button class="btn btn-login" onclick="login()">Login</button>
         <button class="btn btn-cancel" onclick="cancel()">Cancel</button>
     </div>
@@ -29,23 +111,31 @@
 </div>
     <nav>
       <h3>SoleilApp</h3>
-      <div class="acts blog-links">
-        <a href="./index.html">Home</a>
-        <!-- <a href="./index.html">NewsLetter</a> -->
-        <a href="./login.html" id="user-login">Login</a>
-        <button id="user-logout">Logout <span>no</span></button>
+      <div class="tail">
+        <a href="./index.html" style="text-decoration: none; margin-right: 10px;font-size: 25px;">Home</a>
+        <div class="log" id="auth2">
+          <img src="https://up.yimg.com/ib/th?id=OIP.52T8HHBWh6b0dwrG6tSpVQHaFe&%3Bpid=Api&rs=1&c=1&qlt=95&w=156&h=115" alt="">
+          <p>Logout</p>
+        </div>
+        <div id="auth1" class="login-btn">Login</div>
+  
+        
       </div>
     </nav>
     <main class="common testing">
       <div class="main-left">
-        <h3 id="blog-title">Nextjs 14 server actions updated</h3>
-        <img src="./images/ssss.jpg" alt="blog imaeg" id="soleil-image"/>
-        <p id="blog-description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut aperiam
-          veniam illum nobis soluta sunt eligendi consectetur natus recusandae?
-          Eaque, ea dolores quod consequatur minus saepe delectus iure iusto
-          praesentium .
-        </p>
+        <!-- spinner -->
+        <div class="loading" id="loader">
+          <div class="spinner"></div>
+        </div>
+
+        <h3 id="blog-title"></h3>
+        <img src="./images/ssss.jpg" alt="blog imaeg" id="soleil-image" style="display: none;"/>
+        <p id="blog-description"></p>
+
+        <div class="like-holder" id="like-holder">
+          <img src="./javascript/unlike.png" alt="yes" class="like" id="track-like"/> <span id="likes"></span>
+        </div>
        
         <div>
           <h3>Comments</h3>
@@ -57,16 +147,18 @@
                 placeholder="Enter comments"
                 id="comment-content"
               />
-              <button type="submit">Comment</button>
+              <button type="submit" id="comment-btn" style="display: flex; justify-content: center;align-items: center;">
+                <div class="loading2" id="loader2">
+                  <div class="spinner2"></div>
+                </div>
+                <span id="span">Comment</span>
+              </button>
               </form>
           <div class="comments-container" id="comm-cont">
            
-          
-            
-              
-            
           </div>
         </div>
+
       </div>
       <div class="main-right" id="related-blogs">
         <h3>Related Blogs</h3>

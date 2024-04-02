@@ -8,7 +8,7 @@
   border-radius: 10px;
 }
 .register-form input,
-.register-form .google {
+.register-form .google, .btn4{
   width: 100%;
   padding: 10px 15px;
   border-radius: 10px;

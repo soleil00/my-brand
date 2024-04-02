@@ -15,11 +15,121 @@
     <link rel="stylesheet" href="./admin-css/new-blog.css" />
     <script src="https://cdn.tiny.cloud/1/s7py3fvp0fe4h80r14gj8p9kyy38u8kqpn0emz2zmfwfyw3t/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <title>Admin dashboard</title>
+    <style>
+      
+      .loading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 5px;
+      }
+
+      #edit-blog-description{
+        height: 100px;
+      }
+      .hh {
+        display: none;
+      }
+     
+      .spinner {
+        border: 8px solid rgba(0, 0, 0, 0.1); 
+        border-top: 8px solid #3498db; 
+        border-radius: 50%; 
+        width: 30px;
+        height: 30px;
+        animation: spin 1s linear infinite;
+      }
+      .or {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+      
+      .loading2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+      }
+     
+      .spinner2 {
+        border: 8px solid rgba(0, 0, 0, 0.1); 
+        border-top: 8px solid #3498db; 
+        border-radius: 50%; 
+        width: 100px;
+        height: 100px;
+        animation: spin 1s linear infinite;
+      }
+      
+      
+     
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+
+      /* modal */
+
+      .overlay3 {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.5); 
+          z-index: 9999;
+          }
+
+      .modal-form3 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        max-width:400px;
+        width: 90%; 
+      }
+
+        .modal-form3 div {
+          margin-bottom: 10px;
+        }
+
+       
+
+        
+
+        .new-title {
+          border: 1px solid black;
+          margin: 5px 0;
+        }
+
+        .change-img {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .change-img img {
+          width: 100px;
+          height: 100px;
+          /* border-radius: 50%; */
+        }
+
+        
+
+      </style>
   </head>
   <body>
     <div class="flex-cols common">
       <div class="side-bar" id="side-bar">
         <h4 id="close-me">SoleilApp Pannel</h4>
+        <h4 id="close-me2">SoleilApp Pannel</h4>
         <div class="links">
           <p class="active">Dashboard</p>
           <p class="">Messages</p>
@@ -43,19 +153,37 @@
           <div class="card-container">
             <div class="card">
               <img src="./images/icons/users.png" alt="" />
-              <div class="count" id="user-count">40 Users</div>
+              <div class="count" id="user-count">
+                <div class="loading">
+                  <div class="spinner"></div>
+                </div>
+              </div>
             </div>
             <div class="card">
               <img src="./images/icons/message.png" alt="" />
-              <div class="count" id="message-count">23 Messages</div>
+              <div class="count" id="message-count">
+                <div class="loading">
+                  <div class="spinner"></div>
+                </div>
+              </div>
             </div>
             <div class="card">
               <img src="./images/icons/blog.png" alt="" />
-              <div class="count" id="blog-count">6 Blogs</div>
+              <div class="count" id="blog-count">
+
+                <div class="loading">
+                  <div class="spinner"></div>
+                </div>
+
+            </div>
             </div>
             <div class="card">
               <img src="./images/icons/subscribers.png" alt="" />
-              <div class="count" id="subscriber-count">100 Subscribers</div>
+              <div class="count" id="subscriber-count">
+                <div class="loading">
+                  <div class="spinner"></div>
+                </div>
+              </div>
             </div>
             <div class="card">
               <img src="./images/icons/request.png" alt="" />
@@ -70,7 +198,7 @@
                   <th class="sm-hidden">Profile Picture</th>
                   <th>Name</th>
                   <th>Email</th>
-                  <th>Role</th>
+                  <th class="sm-hidden">Role</th>
                   <th class="sm-hidden">Register At</th>
                   <!-- New column -->
                 </tr>
@@ -83,6 +211,9 @@
             <div class="recent-subscribers" id="recent-subscribers">
               <h4>Recent Subscribers</h4>
               
+              <div class="loading">
+                <div class="spinner"></div>
+              </div>
               
               
             </div>
@@ -137,36 +268,79 @@
           <h3>All Blogs</h3>
           <div class="blog-container" id="blog-cont">
             
-
-          <div class="edit-overlay" id="edit-overlay">
+            
+          <!-- <div class="edit-overlay" id="edit-overlay">
             <div class="add-blog-container" id="add-blog-container">
-              <!-- starung from here -->
-              <form class="add-blog-form" id="edit-blog-form">
-                
 
-                <div style="margin-bottom: 10px;">Editing Blog</div>
-               
-            <div style="margin-bottom: 10px;">
-              <!-- <label for="new-title">Blog Titlesgfsfs</label> -->
-              <input type="text" id="edit-blog-title" class="new-title" placeholder="blog title">
-            </div>
-           
-  
-           
-            
-            <textarea id="edit-blog-description"></textarea>
-            
-            <div class="hask">
-              <input type="button" value="cancel" id="add" />
-              <input type="submit" value="Edit Blog" id="add" class="close-edit"/>
-            </div>
-        
+
+             
+              <form  id="edit-blog-form">
                 
+                <div style="margin-bottom: 10px;">Edit Blog Form</div>
+                
+                <div style="margin-bottom: 10px;">
+                  <label for="edit-blog-title">Blog Title</label>
+                  <input type="text" id="edit-blog-title" class="new-title" placeholder="blog title">
+                  <label for="edit-blog-image">Blog Image</label>
+                  <img src="" alt="img edit" style="width: 100px;height: 100px;" id="edit-blog-image">
+                </div>
+                
+                <textarea id="edit-blog-description"></textarea>
+                
+                <div class="hask">
+                  <input type="button" value="cancel" id="add" />
+                  <input type="submit" value="Edit Blog" id="add" class="close-edit"/>
+                </div>
+
+                <div class="actss">
+                  <button id="cancel-edit">Cancel</button>
+                  <button type="submit" id="confirm-edit">Confirm</button>
+                </div>
+                  
               </form>
-
-              <!-- ending from here -->
+              
+              
             </div>
+          </div> -->
+
+
+          <!-- from ciodepen -->
+          <div class="overlay3" id="overlay3">
+            <form id="edit-blog-form" class="modal-form3">
+              <div style="margin-bottom: 10px;">Edit Blog Form</div>
+              <div style="margin-bottom: 10px;">
+                <label for="edit-blog-title">Blog Title</label>
+                <input type="text" id="edit-blog-title" class="new-title" placeholder="blog title">
+                <div for="edit-blog-image">Blog Image</div>
+                <!-- <img src="" alt="show img" id="show-im" /> -->
+                <div class="change-img">
+                  <img class="b-image" src="" 
+                    alt="img edit" style="width: 100px;height: 100px;" 
+                    id="edit-blog-image">
+                    <!-- <img src="" alt="show img" id="show-im" /> -->
+                  <div class="or">OR</div>
+                  <label for="new-blog-img">
+                    <img src="./images/icons/upload.png" alt="" />
+                    <p>Change Image</p>
+                  </label>
+                  <input type="file" id="new-blog-img" name="new-im" class="hh" />
+                </div>
+              </div>
+              <textarea id="edit-blog-description"></textarea>
+              <div class="actss">
+                <div id="cancel-edit" class="can">Cancel</div>
+                <div id="confirm-edit" class="div">
+                  <div class="loading5" id="loader5">
+                    <div class="spinner5"></div>
+                  </div>
+                  <div id="conf">Confirm</div>
+                </div>
+              </div>
+            </form>
           </div>
+          <!--  -->
+
+
           <div class="blog-overlay" id="blog-overlay">
             <div class="add-blog-container" id="add-blog-container">
               <form class="add-blog-form" id="add-blog-form">
@@ -186,11 +360,14 @@
                   placeholder="Enter Blog description #markdown supported"
                 ></textarea>
                 <input type="submit" value="Submit" />
-                <!-- <button class="blog-cancel">Cancel</button> -->
+      
               </form>
             </div>
           </div>
           
+        </div>
+        <div class="loading2" id="spinner3">
+          <div class="spinner2"></div>
         </div>
         
   
@@ -201,20 +378,26 @@
           <form id="new-blog-form">
             <div style="margin-bottom: 10px;">
               <label for="new-title" style="margin-bottom: 10px;">Blog Title</label>
-              <input type="text" id="new-title" class="new-title" placeholder="blog title" style="margin-top: 10px;">
+              <input type="text" required id="new-title" class="new-title" placeholder="blog title" style="margin-top: 10px;">
             </div>
            
-              <label for="new-image" class="soleill" id="label">
-                <img src="./images/icons/blog.png" alt="" />
-                <div>Choose Blog Image</div>
+              <label for="new-image" class="soleill" id="label" style="display: flex; justify-content: space-between; align-items: center;">
+                <img src="" id="show-image" alt="some image" class="new-image"/>
+                <img src="./images/icons/upload.png" alt="" />
+                <!-- <div>Choose Blog Image</div> -->
               </label>
               <input type="file" name="" id="new-image" class="new-image">
               <!-- <input type="file" name="" id="show-image" class="new-image"> -->
-              <img src="" id="show-image" alt="some image" class="new-image"/>
            
             
-            <textarea id="mytextarea"></textarea>
-            <input type="submit" value="Add Blog" id="add">
+            <textarea  id="mytextarea"></textarea>
+            <!-- <input  value="Add Blog soleil" /> -->
+            <button type="submit" id="soleil-test" class="add-soleil" style="background: gray;">
+              <div class="loading" id="loader10">
+                <div class="spinner"></div>
+              </div>
+              <span id="span10">Add Blog</span>
+            </button>
           </form>
         </div>
 
@@ -235,7 +418,7 @@
     <script>
   tinymce.init({
     selector: '#mytextarea,#edit-blog-description',
-    plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
+    plugins: '',
     toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
     tinycomments_mode: 'embedded',
     tinycomments_author: 'Author name',
