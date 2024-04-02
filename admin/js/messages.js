@@ -59,7 +59,7 @@ const displayMessages = (messages) => {
   });
 }
 
-const loadMessages = async () => {
+export const loadMessages = async () => {
   try {
     const res = await fetchMessages();
     allMessages = res.data;

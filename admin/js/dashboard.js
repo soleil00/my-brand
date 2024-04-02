@@ -1,4 +1,7 @@
 let currentUser;
+let num=0;
+
+
 
 let token = localStorage.getItem('token');
 
@@ -137,12 +140,6 @@ export const updateDashboard = async() => {
   const messagesData = await fetchMessages()
   const subsData = await fetchSub()
 
-  localStorage.setItem("messages", JSON.stringify(messagesData.data));
-  localStorage.setItem("subscribers", JSON.stringify(subsData.data));
-  localStorage.setItem("users", JSON.stringify(userData.data));
-
-
-
 
   const messageCount = document.getElementById("message-count");
   const subscriberCount = document.getElementById("subscriber-count")
@@ -206,7 +203,16 @@ export function customAlert(){
   alert("Custom Alert")
 }
 
+let blogLoader = localStorage.getItem('blogLoader');
+setInterval(async() => {
 
+  if( blogLoader && blogLoader === "true"){
+    await updateDashboard()
+    localStorage.removeItem('blogLoader')
+  }
+
+  
+}, 1000);
 
 // export { updateDashboard };
 

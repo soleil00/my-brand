@@ -1,4 +1,3 @@
-import { renderBlogs } from "./blog";
 
 
 const blogTitle = document.getElementById("new-title");
@@ -84,7 +83,8 @@ newBlogForm.addEventListener("submit", async( e )=> {
         span10.textContent="Success"
         addBlogBtn.style.background="green"
 
-        await renderBlogs()
+        localStorage.setItem("blogLoader",true)
+
         
 
         setTimeout(() => {

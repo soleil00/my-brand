@@ -1,15 +1,21 @@
+import {renderBlogs} from "./blog.js"
+import { updateDashboard } from "./dashboard.js";
+import { loadMessages } from "./messages.js";
+
 const links = document.querySelectorAll(".links p");
 const mainContents = document.querySelectorAll(".main-contents > div");
 const sidebar = document.getElementById("side-bar");
 const closeMe = document.getElementById("close-me");
 const burger = document.getElementById("burger");
+const blogContainer = document.getElementById("blog-cont");
+const messageContainer = document.getElementById("messages");
 
 let windowWidth;
 
 burger.addEventListener("click", () => (sidebar.style.display = "block"));
 closeMe.addEventListener("click", () => (sidebar.style.display = "none"));
 links.forEach((link) => {
-  link.addEventListener("click", (e) => {
+  link.addEventListener("click", async(e) => {
     e.preventDefault();
 
     links.forEach((otherLink) => {
@@ -27,7 +33,23 @@ links.forEach((link) => {
     const targetContent = document.getElementById(targetId);
     if (targetContent) {
       targetContent.style.display = "block";
+      console.log(targetContent.id)
       // sidebar.style.display = "none"
+      if(targetContent.id == "dashboard") {
+
+        blogContainer.innerHTML = "";
+
+        // await renderBlogs()
+        await updateDashboard()
+        
+      } else if(targetContent.id == "blogs"){
+        blogContainer.innerHTML = "";
+        await renderBlogs()
+        // sidebar.style.display = "none"
+      } else if(targetContent.id == "messages"){
+        messageContainer.innerHTML = "";
+        await loadMessages()
+      }
     }
   });
 });
