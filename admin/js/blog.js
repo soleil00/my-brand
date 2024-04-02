@@ -7,6 +7,7 @@ const blogImage = document.getElementById("blog-image");
 const blogCount = document.getElementById("blog-count");
 const blogContainer = document.getElementById("blog-cont");
 const editOverlay = document.getElementById("edit-overlay");
+const modal = document.getElementById("modal10");
 
 const spinner3 = document.getElementById("spinner3");
 const overlay3 = document.getElementById('overlay3');
@@ -25,6 +26,20 @@ const loader5 = document.getElementById("loader5");
 const conf = document.getElementById("conf");
 let image;
 
+let isDeleting = false;
+
+const showModal = () => {
+  if (isDeleting) {
+    modal.style.display = "block";
+  } else {
+    modal.style.display = "none";
+  }
+}
+
+
+const hideModal = () => {
+  modal.style.display = "none";
+}
 
 
 
@@ -48,116 +63,198 @@ const fetchBlogs = async () => {
   }
 }
 
-fetchBlogs();
 
 
 
 export const renderBlogs = async () => {
+
   let blogData = await fetchBlogs();
-  blogs = blogData.data;
+blogs = blogData.data;
+blogContainer.innerHTML = "";
 
-  blogs.forEach((blog) => {
-    spinner3.style.display = "none";
-    const idToDelete = `delete-${blog?._id}`;
-    const idToEdit = `edit-${blog?._id}`;
+blogs.forEach((blog) => {
+  spinner3.style.display = "none";
+  const idToDelete = `delete-${blog?._id}`;
+  const idToEdit = `edit-${blog?._id}`;
 
-    const html = `<div class="blog">
-                  <img src=${blog.image} />
-                  <div class="blog-description">
-                    <p class="blog-category">
-                      <span>${blog.likes.length} 
-                      <img src="./js/like.png" style= "width:15px;height:15px" />
-                    </p>
-                    <p>${blog.title}</p>
-                    <div class="blog-actions">
-                      <button id="${idToDelete}">Delete</button>
-                      <button class="edit-blog" id="${idToEdit}">Edit</button>
-                    </div>
+  const html = `<div class="blog">
+                <img src=${blog.image} />
+                <div class="blog-description">
+                  <p class="blog-category">
+                    <span>${blog.likes.length} 
+                    <img src="./js/like.png" style= "width:15px;height:15px" />
+                  </p>
+                  <p>${blog.title}</p>
+                  <div class="blog-actions">
+                    <button id="${idToDelete}">Delete</button>
+                    <button class="edit-blog" id="${idToEdit}">Edit</button>
                   </div>
-                </div>`;
+                </div>
+              </div>`;
 
-    blogContainer.insertAdjacentHTML("beforeend", html);
+  blogContainer.insertAdjacentHTML("beforeend", html);
+
+  
+  const deleteButton = document.getElementById(idToDelete);
+  const editButton = document.getElementById(idToEdit);
+
+  deleteButton.addEventListener("click", async () => {
+    const index = idToDelete.split("-")[1];
+    blogContainer.innerHTML ="";
+    await deleteBlog(index);
   });
 
-  blogContainer.addEventListener("click", async(e) => {
-    if (e.target.tagName === "BUTTON" && e.target.id.startsWith("delete-")) {
-      const index = e.target.id.split("-")[1]
+  editButton.addEventListener("click", async() => {
+    document.getElementById("modal-container").style.display = "block";
+    console.log(editButton)
+    const blogId = idToEdit.split("-")[1];
+    const currentBlog = blogs.find(b => b._id === blogId);
+    
+    // await editBlog(currentBlog)
 
-      console.log("catching id ",e.target.id.split("-")[0])
+    title.value=currentBlog?.title;
+    title.style.color = "black";
+    editBlogImage.src= currentBlog?.image
+    const editor = tinymce.get('edit-blog-description');
+    editor.setContent(currentBlog?.content);
 
-      await deleteBlog(index)
-      // blogs.splice(index, 1);
-
+    editBlogForm.addEventListener("submit",async(e)=>{
+      e.preventDefault()
+      console.log("want to edit blog : ",blog.title)
+  
+      loader5.style.display = "flex";
+      conf.style.display = "none";
+  
+      const formdata = new FormData()
+  
+      formdata.append("title",title.value)
+      formdata.append("content",editor.getContent().replace(/<\/?p>/g, ""))
+      if(image){
+        formdata.append("image",image)
+      }
+  
+      const response = await fetch(`https://my-brand-backend-1-cqku.onrender.com/api/v1/blogs/${currentBlog?._id}`, {
+      method: 'PUT',
+      body: formdata,
+      headers: {
+        'Authorization': `Bearer ${token}`,
+      }
+    });
+  
+    if(response.status === 200){
+  
       blogContainer.innerHTML = "";
-
-      let blogData = await fetchBlogs()
-      blogs = blogData.data;
-      blogs.forEach((blog) => {
-        const idToDelete = `delete-${blog?._id}`;
-        const idToEdit = `edit-${blog?._id}`;
-        const html = `<div class="blog">
-        <img src=${blog.image} />
-        <div class="blog-description">
-          <p class="blog-category">
-            <span>${blog.likes.length} 
-            <img src="./js/like.png" style= "width:15px;height:15px" />
-          </p>
-          <p>${blog?.title}</p>
-          <div class="blog-actions">
-            <button id="${idToDelete}">Delete</button>
-            <button class="edit-blog" id="${idToEdit}">Edit</button>
-          </div>
-        </div>
-      </div>`
-
-        blogContainer.insertAdjacentHTML("beforeend", html);
-        fetchBlogs();
-      });
-    } else if (e.target.tagName === "BUTTON" && e.target.id.startsWith("edit-")) {
-
-      overlay3.style.display = "block";
+      spinner3.style.display="flex"
+      blogs=[]
       
-      const blogId = e.target.id.split("-")[1];
-      const currentBlog = blogs.find(b => b._id === blogId)
-
-      editBlog(currentBlog)
-
+      loader5.style.display = "none";
+      conf.style.display = "block";
+      conf.textContent="Success 🤡"
+      conf.style.color="black"
+      // confirmEdit.style.background="green"
+      // await renderBlogs();
+      document.getElementById("modal-container").style.display = "none";
       
+  
+      setTimeout(async() => {
+        spinner3.style.display="none"
+        conf.textContent="Confirm"
+        confirmEdit.style.background="gray"
+        overlay3.style.display="none"
+        await renderBlogs();
+  
+      }, 3000);
+     
+  
+    } else {
+  
+      loader5.style.display = "none";
+      conf.style.display = "block";
+      conf.textContent="Sth went Wrong 🤕"
+      conf.style.color="red"
+      confirmEdit.style.background="gray"
+  
+      await renderBlogs()
+  
+      setTimeout(() => {
+        conf.textContent="Confirm"
+        conf.style.color="black"
+        overlay3.style.display="none"
+        
+      }, 3000);
+  
     }
+  
+    })
   });
+});
+ 
 };
 
 renderBlogs();
 
+document.getElementById("modal-container").addEventListener("click",e=>{
+  if(e.target.id === "modal-container"){
+    document.getElementById("modal-container").style.display = "none";
+  }
+})
 
 
-const deleteBlog=async(id)=>{
-  console.log("id to be deleted",id)
-  const response = await fetch(`https://my-brand-backend-1-cqku.onrender.com/api/v1/blogs/${id}`, {
-    method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    }
-  });
+const deleteBlog = async (id) => {
+  console.log("id to be deleted", id);
 
-  const data = await response.json();
-  console.log(data);
+  isDeleting = true;
+  showModal();
+  try {
+    const response = await fetch(`https://my-brand-backend-1-cqku.onrender.com/api/v1/blogs/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      }
+    });
+    const data = await response.json();
+    console.log(data);
+
+    
+
+    await renderBlogs()
+
+    isDeleting = false;
+    hideModal();
+  } catch (error) {
+    console.error('Error deleting blog:', error);
+    isDeleting = false;
+    hideModal();
+  }
 }
 
-editBlogForm.addEventListener("submit",e=>e.preventDefault());
+const handleEdit = () => {
+  if (overlay3.style.display === "none" || overlay3.style.display === "") {
+    overlay3.style.display = "block";
+  }
+
+  const isHidden = overlay3.style.display === "none"
+  console.log(isHidden)
+}
+
+
+// editBlogForm.addEventListener("submit",e=>e.preventDefault());
   
 const editBlog = async(blog)=>{
+
+  handleEdit()
 
   title.value=blog?.title;
   title.style.color = "black";
   editBlogImage.src= blog?.image
   const editor = tinymce.get('edit-blog-description');
   editor.setContent(blog?.content);
-  
-  
 
-  confirmEdit.addEventListener("click",async()=>{
+  console.log("got called with : ", blog?._id)
+
+  editBlogForm.addEventListener("submit",async(e)=>{
+    e.preventDefault()
     console.log("want to edit blog : ",blog.title)
 
     loader5.style.display = "flex";
@@ -197,8 +294,7 @@ const editBlog = async(blog)=>{
 
       conf.textContent="Confirm"
       confirmEdit.style.background="gray"
-
-      overlay3.style.display = "none";
+      overlay3.style.display="none"
 
     }, 3000);
    
@@ -211,41 +307,16 @@ const editBlog = async(blog)=>{
     conf.style.color="red"
     confirmEdit.style.background="gray"
 
+    await renderBlogs()
+
     setTimeout(() => {
       conf.textContent="Confirm"
       conf.style.color="black"
-      overlay3.style.display = "none";
+      overlay3.style.display="none"
       
     }, 3000);
 
   }
-
-  const data = await response.json();
-  blogContainer.innerHTML = "";
-
-      let blogData = await fetchBlogs()
-      blogs = blogData.data;
-      blogs.forEach((blog) => {
-        const idToDelete = `delete-${blog?._id}`;
-        const idToEdit = `edit-${blog?._id}`;
-        const html = `<div class="blog">
-        <img src=${blog.image} />
-        <div class="blog-description">
-          <p class="blog-category">
-            <span>${blog.likes.length} 
-            <img src="./js/like.png" style= "width:15px;height:15px" />
-          </p>
-          <p>${blog?.title}</p>
-          <div class="blog-actions">
-            <button id="${idToDelete}">Delete</button>
-            <button class="edit-blog" id="${idToEdit}">Edit</button>
-          </div>
-        </div>
-      </div>`
-
-        blogContainer.insertAdjacentHTML("beforeend", html);
-        fetchBlogs();
-      });
 
   })
 
@@ -256,6 +327,7 @@ const editBlog = async(blog)=>{
 overlay3.addEventListener("click",e=>{
   if(e.target == overlay3){
     overlay3.style.display = "none";
+    editBlogForm.reset()
 
   }
 })
