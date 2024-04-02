@@ -125,12 +125,12 @@ fetchSub()
 
 
 
-const fetchSubscribers = () => {
-  subscribers = JSON.parse(localStorage.getItem("subscribers")) || [];
-  const subscriberCount = document.getElementById("subscriber-count")
-  subscriberCount.innerHTML = `${subscribers.length} Subscribers`;
+// const fetchSubscribers = () => {
+//   subscribers = JSON.parse(localStorage.getItem("subscribers")) || [];
+//   const subscriberCount = document.getElementById("subscriber-count")
+//   subscriberCount.innerHTML = `${subscribers.length} Subscribers`;
 
-}
+// }
 
 export const updateDashboard = async() => {
 
