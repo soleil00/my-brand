@@ -6,12 +6,13 @@ const message = document.getElementById('contact-message');
 const isubscribedToNewsletter = document.getElementById('is-newsletter-checked');
 const errorMessage = document.getElementById('error-message');
 const emailErrorMessage = document.getElementById('email-message');
+const sendBtn = document.getElementById('send-ms');
 
 
 
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-contactMeForm.addEventListener('submit', (e) => {
+contactMeForm.addEventListener('submit', async(e) => {
     e.preventDefault();
 
     const nameValue = names.value.trim();
@@ -38,26 +39,31 @@ contactMeForm.addEventListener('submit', (e) => {
         return;
     }
 
+    sendBtn.textContent="Sending..."
 
     const data = {
         name: nameValue,
         email: emailValue,
         subject: subjectValue,
         message: messageValue,
-        isSubscribedToNewsletter: isubscribedToNewsletter.checked
+        subscribed: isubscribedToNewsletter.checked
     };
 
-    const subscribers = JSON.parse(localStorage.getItem('subscribers')) || [];
+    const response =  await fetch("https://my-brand-backend-1-cqku.onrender.com/api/v1/messages",{
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
 
-    if (isubscribedToNewsletter) {
-        const newSub = { name:data.name, email:data.email };
-        subscribers.push(newSub);
-        localStorage.setItem('subscribers', JSON.stringify(subscribers));
-    }
 
-    const messages = JSON.parse(localStorage.getItem('contact-messages')) || [];
-    messages.push(data);
-    localStorage.setItem('contact-messages', JSON.stringify(messages));
+    const res = await response.json()
+
+    console.log(res)
+
+
+    
 
     contactMeForm.reset();
 });

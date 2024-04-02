@@ -10,6 +10,8 @@
   z-index: 10000000;
 }
 
+
+
 .side-bar h4 {
   text-align: center;
   padding: 20px 2px 40px;
@@ -36,14 +38,29 @@
   }
 }
 
+#close-me {
+  display: none;
+}
+#close-me2 {
+  display: flex;
+}
+
 @media (max-width: 768px) {
   .side-bar {
     display: none;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
     width: 60%;
     animation: 0.5s slide ease-in-out;
+  }
+
+  #close-me {
+    display: flex;
+  }
+
+  #close-me2 {
+    display: none;
   }
 }
