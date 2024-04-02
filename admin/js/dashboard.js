@@ -166,7 +166,7 @@ export const updateDashboard = async() => {
 
   table.innerHTML = ''; // Clear the existing table content
   
-  users.slice(-20).forEach(user => {
+  userData.data.slice(-20).forEach(user => {
 
     const role = user.isAdmin? 'admin' : "user"
     const html = `<tr>
@@ -184,7 +184,7 @@ export const updateDashboard = async() => {
 
   recentSubscribers.innerHTML = ''; 
   
-  subscribers.slice(-5).reverse().forEach(sub => {
+  subsData.data.slice(-5).reverse().forEach(sub => {
     const html = `<div class="subscriber">
                     <img src="../images/me.png" alt="" />
                     <div class="data">
