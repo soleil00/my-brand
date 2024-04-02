@@ -70,6 +70,7 @@ export const renderBlogs = async () => {
 
   let blogData = await fetchBlogs();
 blogs = blogData.data;
+blogContainer.innerHTML = "";
 
 blogs.forEach((blog) => {
   spinner3.style.display = "none";
@@ -108,7 +109,6 @@ blogs.forEach((blog) => {
     console.log(editButton)
     const blogId = idToEdit.split("-")[1];
     const currentBlog = blogs.find(b => b._id === blogId);
-    handleEdit()
     
     // await editBlog(currentBlog)
 
@@ -151,7 +151,7 @@ blogs.forEach((blog) => {
       conf.style.display = "block";
       conf.textContent="Success 🤡"
       conf.style.color="black"
-      confirmEdit.style.background="green"
+      // confirmEdit.style.background="green"
       // await renderBlogs();
       document.getElementById("modal-container").style.display = "none";
       

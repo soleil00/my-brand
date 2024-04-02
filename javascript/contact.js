@@ -7,7 +7,10 @@ const isubscribedToNewsletter = document.getElementById('is-newsletter-checked')
 const errorMessage = document.getElementById('error-message');
 const emailErrorMessage = document.getElementById('email-message');
 const sendBtn = document.getElementById('send-ms');
+const loader12 = document.getElementById('loader12');
+const span12 = document.getElementById('span12');
 
+loader12.style.display = 'none';
 
 
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -39,7 +42,9 @@ contactMeForm.addEventListener('submit', async(e) => {
         return;
     }
 
-    sendBtn.textContent="Sending..."
+    // sendBtn.textContent="Sending..."
+    loader12.style.display="flex"
+    span12.style.display="none"
 
     const data = {
         name: nameValue,
@@ -60,7 +65,22 @@ contactMeForm.addEventListener('submit', async(e) => {
 
     const res = await response.json()
 
-    console.log(res)
+    if(response.ok){
+        span12.style.display="block"
+        loader12.style.display="none"
+        span12.textContent="Success"
+        sendBtn.style.background="green"
+        
+        setTimeout(() => {
+
+            sendBtn.style.background="blue"
+            span12.textContent = "Send"
+            
+        }, 2000);
+        
+    }
+
+    console.log(response)
 
 
     

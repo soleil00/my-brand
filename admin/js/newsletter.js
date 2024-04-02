@@ -1,25 +1,50 @@
 
 
+let token = localStorage.getItem("token");
 
-const newsletters = document.getElementById("newsletter");
-let subscribers = JSON.parse(localStorage.getItem("subscribers")) || [];
+const fetchSub = async()=>{
+  try {
+    const response = await fetch("https://my-brand-backend-1-cqku.onrender.com/api/v1/subscribers", {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      }
+    });
 
-const fetchSubscribers = () => {
-  subscribers = JSON.parse(localStorage.getItem("subscribers")) || [];
-  const subscriberCount = document.getElementById("subscriber-count")
-  subscriberCount.innerHTML = `${subscribers.length} Subscribers`;
+    const data = await response.json();
 
+    console.log(" from sub og : ",data)
+    return data;
+
+   
+  } catch (error) {
+    console.error('Error fetching subscribers:', error);
+  }
 }
 
-function renderSubscribers() {
+fetchSub()
+
+
+
+
+const newsletters = document.getElementById("newsletter");
+// let subscribers = JSON.parse(localStorage.getItem("subscribers")) || [];
+
+// const fetchSubscribers = () => {
+//   subscribers = JSON.parse(localStorage.getItem("subscribers")) || [];
+//   const subscriberCount = document.getElementById("subscriber-count")
+//   subscriberCount.innerHTML = `${subscribers.length} Subscribers`;
+
+// }
+
+async function renderSubscribers() {
   newsletters.innerHTML = ""; 
+
+  const subData = await fetchSub()
+
   
-  if (subscribers.length === 0) {
-    newsletters.innerHTML = "<div>No Subscribers Yet</div>";
-    return;
-  }
-  
-  subscribers.forEach((sub, index) => {
+  subData.data.forEach((sub, index) => {
     const id = `delete-${index}`;
     const html = `<div class="subscriber">
             <img src="../images/me.png" alt="" />
@@ -27,10 +52,10 @@ function renderSubscribers() {
               <p>${sub.name}</p>
               <p>${sub.email}</p>
             </div>
-            <div class="newsletter-acts">
-              <button id="${id}" class="unsub">Unsubscribe</button>
-            </div>
-          </div>`;
+            </div>`;
+            // <div class="newsletter-acts">
+            //   <button id="${id}" class="unsub">Unsubscribe</button>
+            // </div>
 
     newsletters.insertAdjacentHTML("beforeend", html);
 

@@ -37,17 +37,23 @@ links.forEach((link) => {
       // sidebar.style.display = "none"
       if(targetContent.id == "dashboard") {
 
-        blogContainer.innerHTML = "";
+
 
         // await renderBlogs()
         await updateDashboard()
         
       } else if(targetContent.id == "blogs"){
-        blogContainer.innerHTML = "";
+        blogContainer.innerHTML = `<div class="loading-wrapper" id="wraper">
+        <div class="loading-spinner"></div>
+      </div> `;
         await renderBlogs()
         // sidebar.style.display = "none"
       } else if(targetContent.id == "messages"){
-        messageContainer.innerHTML = "";
+
+        
+        messageContainer.innerHTML = `<div class="loading-wrapper" id="wraper">
+        <div class="loading-spinner"></div>
+      </div> `;
         await loadMessages()
       }
     }

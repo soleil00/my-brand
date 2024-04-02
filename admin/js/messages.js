@@ -4,10 +4,23 @@ const deleteContentModel = document.querySelector(".delete-model");
 const replyContentForm = document.querySelector(".form-setting");
 const yesButton = document.querySelector(".yes");
 const noButton = document.querySelector(".no");
+const loader = document.getElementById("wraper")
 
 let allMessages;
 let token = localStorage.getItem('token');
 let idToDelete;
+
+let isLoading = true;
+
+const handleLoading =()=>{
+  if(isLoading){
+    loader.style.display = 'flex';
+  } else {
+    loader.style.display = 'none';
+  }
+}
+
+// handleLoading()
 
 const fetchMessages = async () => {
   try {
@@ -42,6 +55,9 @@ const deleteMessage = async (id) => {
 }
 
 const displayMessages = (messages) => {
+  // isLoading=false;
+  // handleLoading();
+  messageContainer.innerHTML=""
   messages.forEach(info => {
     const messageId = info._id;
     const html = `
@@ -50,11 +66,11 @@ const displayMessages = (messages) => {
               <p><strong>From : </strong> ${info.email}</p>
               <p>${info.message}</p>
           </div>
-          <div class="message-right">
-              <button class="reply">Reply</button>
-              <button class="delete" data-id="${messageId}">Delete</button>
-          </div>
-      </div>`;
+          </div>`;
+          // <div class="message-right">
+          //     <button class="reply">Reply</button>
+          //     <button class="delete" data-id="${messageId}">Delete</button>
+          // </div>
     messageContainer.insertAdjacentHTML("afterbegin", html);
   });
 }
