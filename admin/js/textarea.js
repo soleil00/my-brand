@@ -1,5 +1,7 @@
 
 
+
+
 const blogTitle = document.getElementById("new-title");
 const blogImage = document.getElementById("new-image");
 const newBlogForm = document.getElementById("new-blog-form");
@@ -84,6 +86,7 @@ newBlogForm.addEventListener("submit", async( e )=> {
         addBlogBtn.style.background="green"
 
         localStorage.setItem("blogLoader",true)
+
 
         
 
