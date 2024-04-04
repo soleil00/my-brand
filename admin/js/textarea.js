@@ -45,9 +45,7 @@ newBlogForm.addEventListener("submit", async( e )=> {
     
     const content = tinymce.get('mytextarea').getContent();
 
-    const description = content.replace(/<h1[^>]*>([^<]+)<\/h1>/i, "") 
-                           .replace(/<img[^>]*src="([^"]+)"[^>]*>/i, "")
-                           .replace(/<[^>]*>/g, "");
+    const description = content
 
     const formdata = new FormData();
     formdata.append("title", blogTitle.value);

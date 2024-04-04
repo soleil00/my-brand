@@ -21,6 +21,7 @@
         justify-content: center;
         align-items: center;
         margin-top: 5px;
+        width: 100%;
       }
      
       .spinner {
@@ -288,12 +289,10 @@
 
 <swiper-container class="mySwiper" id="mySwipper"  navigation="true"
     >
-   
+
   </swiper-container>
 
-  <div class="loading" id="loader">
-    <div class="spinner"></div>
-  </div>
+
 
 
 
@@ -385,11 +384,16 @@
     </div>
     <!-- contact me sections ends here -->
     <script src="./javascript/index.js"></script>
-    <script type="module" src="./javascript/blog.js"></script>
+    <!-- <script type="module" src="./javascript/blog.js"></script> -->
     <script src="./javascript/herosection.js"></script>
     <script src="./javascript/contact.js"></script>
     <script src="./javascript/slider.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="./javascript/new.jsx" type="text/babel"></script>
+    <script src="./javascript/BlogDetail.jsx" type="text/babel"></script>
 
   </body>
 </html>
