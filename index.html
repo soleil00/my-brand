@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="./css/slider.css" />
     <title>My Portifolio</title>
     <style>
-      
       .loading {
         display: flex;
         justify-content: center;
@@ -23,38 +22,41 @@
         margin-top: 5px;
         width: 100%;
       }
-     
+
       .spinner {
-        border: 8px solid rgba(0, 0, 0, 0.1); 
-        border-top: 8px solid #3498db; 
-        border-radius: 50%; 
+        border: 8px solid rgba(0, 0, 0, 0.1);
+        border-top: 8px solid #3498db;
+        border-radius: 50%;
         width: 100px;
         height: 100px;
         animation: spin 1s linear infinite;
       }
-      
+
       .loading11 {
         display: flex;
         justify-content: center;
         align-items: center;
         margin-top: 5px;
       }
-     
+
       .spinner11 {
-        border: 8px solid rgba(0, 0, 0, 0.1); 
-        border-top: 8px solid orange; 
-        border-radius: 50%; 
+        border: 8px solid rgba(0, 0, 0, 0.1);
+        border-top: 8px solid orange;
+        border-radius: 50%;
         width: 30px;
         height: 30px;
         animation: spin 1s linear infinite;
       }
-      
-     
+
       @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
       }
-      </style>
+    </style>
   </head>
   <body>
     <!-- nabvar starts here -->
@@ -100,7 +102,7 @@
 
     <!-- hero section starts here -->
     <div class="hero-section common reveals" id="hero">
-      <div class="hero-left" style="text-align: center;">
+      <div class="hero-left" style="text-align: center">
         <h3>Hey , I'm</h3>
         <h2 id="track-text">
           Soleil Rukundo <br />
@@ -282,21 +284,10 @@
 
       </div> -->
 
+      <!-- sliders -->
 
-    <!-- sliders -->
-
-    
-
-<swiper-container class="mySwiper" id="mySwipper"  navigation="true"
-    >
-
-  </swiper-container>
-
-
-
-
-
-
+      <swiper-container class="mySwiper" id="mySwipper" navigation="true">
+      </swiper-container>
     </div>
 
     <!-- blogs sections ends here -->
@@ -388,12 +379,17 @@
     <script src="./javascript/herosection.js"></script>
     <script src="./javascript/contact.js"></script>
     <script src="./javascript/slider.js"></script>
-     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
-     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.production.min.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
+    ></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script src="./javascript/new.jsx" type="text/babel"></script>
     <script src="./javascript/BlogDetail.jsx" type="text/babel"></script>
-
   </body>
 </html>
